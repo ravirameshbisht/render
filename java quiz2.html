@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Coding Challenge Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .code-block {
+            background: #1a1a1a;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+        }
+        .option-btn {
+            transition: all 0.3s ease;
+        }
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+        .option-btn:disabled {
+            opacity: 0.8;
+            cursor: not-allowed !important;
+        }
+        .correct {
+            background: linear-gradient(135deg, #10b981, #059669) !important;
+            color: white !important;
+        }
+        .incorrect {
+            background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen gradient-bg">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <div class="flex items-center justify-center mb-4">
+                <div class="text-6xl mr-4">☕</div>
+                <h1 class="text-5xl font-bold text-white drop-shadow-lg">Java Coding Challenge Game</h1>
+            </div>
+            <p class="text-xl text-white/90">Test your Java knowledge and level up your coding skills!</p>
+        </div>
+
+        <!-- Scoreboard -->
+        <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-8 card-shadow">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white" id="score">0</div>
+                    <div class="text-white/80 font-medium">Score</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white" id="streak">0</div>
+                    <div class="text-white/80 font-medium">Streak</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white" id="completed">0</div>
+                    <div class="text-white/80 font-medium">Completed</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Difficulty Buttons -->
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button onclick="setDifficulty('beginner')" class="difficulty-btn bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                🟢 Beginner
+            </button>
+            <button onclick="setDifficulty('intermediate')" class="difficulty-btn bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                🟡 Intermediate
+            </button>
+            <button onclick="setDifficulty('advanced')" class="difficulty-btn bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                🔴 Advanced
+            </button>
+        </div>
+
+        <!-- Quiz Card -->
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 card-shadow">
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800" id="questionTitle">Variable Declaration</h2>
+                    <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold" id="questionCounter">
+                        Question 1 of 2
+                    </div>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-medium text-gray-600">Progress</span>
+                        <span class="text-sm font-medium text-gray-600" id="progressPercent">50%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-500 ease-out" id="progressBar" style="width: 50%"></div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-600 text-lg" id="questionDescription">What is the correct way to declare an integer variable in Java?</p>
+            </div>
+
+            <!-- Code Snippet -->
+            <div class="code-block p-6 mb-6" id="codeSnippet">
+                <pre class="text-green-400 text-sm"><code>// Example code will appear here
+int myNumber = 42;
+String myText = "Hello World";</code></pre>
+            </div>
+
+            <!-- Multiple Choice Options -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" id="optionsContainer">
+                <button onclick="selectOption(0)" class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-3 rounded-lg text-left text-sm font-medium border-2 border-transparent hover:border-blue-300">
+                    <span class="font-bold text-blue-600">A)</span> int myNumber = 42;
+                </button>
+                <button onclick="selectOption(1)" class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-3 rounded-lg text-left text-sm font-medium border-2 border-transparent hover:border-blue-300">
+                    <span class="font-bold text-blue-600">B)</span> integer myNumber = 42;
+                </button>
+                <button onclick="selectOption(2)" class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-3 rounded-lg text-left text-sm font-medium border-2 border-transparent hover:border-blue-300">
+                    <span class="font-bold text-blue-600">C)</span> Int myNumber = 42;
+                </button>
+                <button onclick="selectOption(3)" class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-3 rounded-lg text-left text-sm font-medium border-2 border-transparent hover:border-blue-300">
+                    <span class="font-bold text-blue-600">D)</span> var myNumber = 42;
+                </button>
+            </div>
+
+            <!-- Submit and Next Buttons -->
+            <div class="flex justify-center gap-4">
+                <button onclick="submitAnswer()" id="submitBtn" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                    Submit Answer
+                </button>
+                <button onclick="nextQuestion()" id="nextBtn" class="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-12 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hidden">
+                    Next Question →
+                </button>
+            </div>
+
+            <!-- Result Message -->
+            <div id="resultMessage" class="mt-6 text-center hidden">
+                <div class="p-4 rounded-xl font-semibold text-lg"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Results Popup Modal -->
+    <div id="resultsModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full card-shadow transform scale-95 transition-all duration-300">
+            <div class="text-center">
+                <div class="text-6xl mb-4" id="resultsEmoji">🎉</div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-2" id="resultsTitle">Quiz Complete!</h2>
+                <p class="text-gray-600 mb-6" id="resultsSubtitle">Great job completing all questions!</p>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 mb-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600" id="finalScore">0</div>
+                            <div class="text-sm text-gray-600">Final Score</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-green-600" id="correctAnswers">0</div>
+                            <div class="text-sm text-gray-600">Correct</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-purple-600" id="maxStreak">0</div>
+                            <div class="text-sm text-gray-600">Best Streak</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-orange-600" id="accuracy">0%</div>
+                            <div class="text-sm text-gray-600">Accuracy</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex gap-3">
+                    <button onclick="restartQuiz()" class="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                        Try Again
+                    </button>
+                    <button onclick="closeResults()" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 0;
+        let selectedOption = -1;
+        let score = 0;
+        let streak = 0;
+        let completed = 0;
+        let currentDifficulty = 'beginner';
+        let answerSubmitted = false; // Track if answer has been submitted
+        let correctAnswers = 0;
+        let maxStreak = 0;
+
+        const questions = {
+            beginner: [
+                {
+                    title: "Variable Declaration1",
+                    description: "What is the correct way to declare an integer variable in Java?",
+                    code: "// Which declaration is correct?\nint number = 42;",
+                    options: [
+                        "int number = 42;",
+                        "Integer number = 42;",
+                        "int number = \"42\";",
+                        "number int = 42;"
+                    ],
+                    correct: 0,
+                    explanation: "Option A is correct. 'int' is the primitive data type for integers."
+                },
+                {
+                    title: "Variable Declaration2",
+                    description: "What is the correct way to declare an integer variable in Java?",
+                    code: "// Which declaration is correct?\nint number = 42;",
+                    options: [
+                        "int number = 42;",
+                        "Integer number = 42;",
+                        "int number = \"42\";",
+                        "number int = 42;"
+                    ],
+                    correct: 0,
+                    explanation: "Option A is correct. 'int' is the primitive data type for integers."
+                }
+            ],
+            intermediate: [
+                {
+                    title: "Variable Declaration3",
+                    description: "What is the correct way to declare an integer variable in Java?",
+                    code: "// Which declaration is correct?\nint number = 42;",
+                    options: [
+                        "int number = 42;",
+                        "Integer number = 42;",
+                        "int number = \"42\";",
+                        "number int = 42;"
+                    ],
+                    correct: 0,
+                    explanation: "Option A is correct. 'int' is the primitive data type for integers."
+                }
+            ],
+            advanced: [
+                {
+                    title: "Variable Declaration4",
+                    description: "What is the correct way to declare an integer variable in Java?",
+                    code: "// Which declaration is correct?\nint number = 42;",
+                    options: [
+                        "int number = 42;",
+                        "Integer number = 42;",
+                        "int number = \"42\";",
+                        "number int = 42;"
+                    ],
+                    correct: 0,
+                    explanation: "Option A is correct. 'int' is the primitive data type for integers."
+                }
+            ]
+        };
+
+        function setDifficulty(difficulty) {
+            currentDifficulty = difficulty;
+            currentQuestion = 0;
+            
+            // Update button styles
+            document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                btn.classList.remove('ring-4', 'ring-white');
+            });
+            event.target.classList.add('ring-4', 'ring-white');
+            
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const question = questions[currentDifficulty][currentQuestion];
+            const totalQuestions = questions[currentDifficulty].length;
+            
+            document.getElementById('questionTitle').textContent = question.title;
+            document.getElementById('questionDescription').textContent = question.description;
+            document.getElementById('questionCounter').textContent = `Question ${currentQuestion + 1} of ${totalQuestions}`;
+            
+            // Update progress bar
+            const progress = ((currentQuestion + 1) / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+            document.getElementById('progressPercent').textContent = `${Math.round(progress)}%`;
+            
+            document.getElementById('codeSnippet').innerHTML = `<pre class="text-green-400 text-sm"><code>${question.code}</code></pre>`;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.onclick = () => selectOption(index);
+                button.className = 'option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-3 rounded-lg text-left text-sm font-medium border-2 border-transparent hover:border-blue-300';
+                button.innerHTML = `<span class="font-bold text-blue-600">${String.fromCharCode(65 + index)})</span> ${option}`;
+                optionsContainer.appendChild(button);
+            });
+            
+            selectedOption = -1;
+            answerSubmitted = false; // Reset submission flag
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('resultMessage').classList.add('hidden');
+            document.getElementById('nextBtn').classList.add('hidden');
+        }
+
+        function selectOption(index) {
+            // Prevent selection if answer already submitted
+            if (answerSubmitted) return;
+            
+            selectedOption = index;
+            
+            // Reset all options
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('ring-4', 'ring-blue-400', 'bg-blue-100');
+                btn.classList.add('bg-gray-100');
+            });
+            
+            // Highlight selected option
+            const selectedBtn = document.querySelectorAll('.option-btn')[index];
+            selectedBtn.classList.remove('bg-gray-100');
+            selectedBtn.classList.add('bg-blue-100', 'ring-4', 'ring-blue-400');
+            
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        function submitAnswer() {
+            // Prevent multiple submissions
+            if (answerSubmitted) return;
+            answerSubmitted = true;
+            
+            const question = questions[currentDifficulty][currentQuestion];
+            const isCorrect = selectedOption === question.correct;
+            
+            // Disable all option buttons to prevent further selection
+            document.querySelectorAll('.option-btn').forEach((btn, index) => {
+                btn.disabled = true;
+                btn.classList.remove('hover:bg-gray-200', 'hover:border-blue-300');
+                btn.style.cursor = 'not-allowed';
+                btn.onclick = null; // Remove click handlers
+                
+                if (index === question.correct) {
+                    btn.classList.add('correct');
+                } else if (index === selectedOption && !isCorrect) {
+                    btn.classList.add('incorrect');
+                }
+            });
+            
+            // Update score and stats
+            if (isCorrect) {
+                score += (currentDifficulty === 'beginner' ? 10 : currentDifficulty === 'intermediate' ? 20 : 30);
+                streak++;
+                correctAnswers++;
+                maxStreak = Math.max(maxStreak, streak);
+            } else {
+                streak = 0;
+            }
+            completed++;
+            
+            updateScoreboard();
+            
+            // Show result message
+            const resultDiv = document.getElementById('resultMessage');
+            const messageDiv = resultDiv.querySelector('div');
+            
+            if (isCorrect) {
+                messageDiv.innerHTML = `🎉 Correct! Well done!<br><small class="text-sm opacity-80">${question.explanation}</small>`;
+                messageDiv.className = 'p-4 rounded-xl font-semibold text-lg bg-green-100 text-green-800';
+            } else {
+                messageDiv.innerHTML = `❌ Incorrect. The correct answer is ${String.fromCharCode(65 + question.correct)}.<br><small class="text-sm opacity-80">${question.explanation}</small>`;
+                messageDiv.className = 'p-4 rounded-xl font-semibold text-lg bg-red-100 text-red-800';
+            }
+            
+            resultDiv.classList.remove('hidden');
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('nextBtn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            const totalQuestions = questions[currentDifficulty].length;
+            
+            if (currentQuestion + 1 >= totalQuestions) {
+                // Show results popup
+                showResults();
+            } else {
+                currentQuestion++;
+                loadQuestion();
+            }
+        }
+
+        function updateScoreboard() {
+            document.getElementById('score').textContent = score;
+            document.getElementById('streak').textContent = streak;
+            document.getElementById('completed').textContent = completed;
+        }
+
+        function showResults() {
+            const totalQuestions = questions[currentDifficulty].length;
+            const accuracy = Math.round((correctAnswers / totalQuestions) * 100);
+            
+            // Update results modal content
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('correctAnswers').textContent = `${correctAnswers}/${totalQuestions}`;
+            document.getElementById('maxStreak').textContent = maxStreak;
+            document.getElementById('accuracy').textContent = `${accuracy}%`;
+            
+            // Set emoji and message based on performance
+            const resultsEmoji = document.getElementById('resultsEmoji');
+            const resultsTitle = document.getElementById('resultsTitle');
+            const resultsSubtitle = document.getElementById('resultsSubtitle');
+            
+            if (accuracy >= 90) {
+                resultsEmoji.textContent = '🏆';
+                resultsTitle.textContent = 'Outstanding!';
+                resultsSubtitle.textContent = 'You\'re a Java master!';
+            } else if (accuracy >= 70) {
+                resultsEmoji.textContent = '🎉';
+                resultsTitle.textContent = 'Great Job!';
+                resultsSubtitle.textContent = 'You\'re doing really well!';
+            } else if (accuracy >= 50) {
+                resultsEmoji.textContent = '👍';
+                resultsTitle.textContent = 'Good Effort!';
+                resultsSubtitle.textContent = 'Keep practicing to improve!';
+            } else {
+                resultsEmoji.textContent = '📚';
+                resultsTitle.textContent = 'Keep Learning!';
+                resultsSubtitle.textContent = 'Practice makes perfect!';
+            }
+            
+            // Show modal with animation
+            const modal = document.getElementById('resultsModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.querySelector('.bg-white').classList.remove('scale-95');
+                modal.querySelector('.bg-white').classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeResults() {
+            const modal = document.getElementById('resultsModal');
+            modal.querySelector('.bg-white').classList.remove('scale-100');
+            modal.querySelector('.bg-white').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function restartQuiz() {
+            // Reset all variables
+            currentQuestion = 0;
+            selectedOption = -1;
+            score = 0;
+            streak = 0;
+            completed = 0;
+            correctAnswers = 0;
+            maxStreak = 0;
+            answerSubmitted = false;
+            
+            // Update scoreboard
+            updateScoreboard();
+            
+            // Close modal and reload question
+            closeResults();
+            setTimeout(() => {
+                loadQuestion();
+            }, 300);
+        }
+
+        // Initialize the game
+        loadQuestion();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976eafbd4013c1a6',t:'MTc1NjQ5ODE3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

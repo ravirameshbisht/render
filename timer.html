@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Timer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .timer-container {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .timer-circle {
+            width: 280px;
+            height: 280px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 40px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .timer-circle.pulsing {
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 60px rgba(255, 255, 255, 0.5);
+            }
+        }
+        
+        .time-display {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timer-label {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .progress-ring {
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            width: 288px;
+            height: 288px;
+            transform: rotate(-90deg);
+        }
+        
+        .progress-ring-circle {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.8);
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-dasharray: 904;
+            stroke-dashoffset: 904;
+            transition: stroke-dashoffset 1s linear;
+        }
+        
+        .floating-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .status-message {
+            margin-top: 20px;
+            font-size: 1rem;
+            opacity: 0.8;
+            min-height: 24px;
+        }
+        
+        @media (max-width: 768px) {
+            .timer-circle {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .time-display {
+                font-size: 2.8rem;
+            }
+            
+            .progress-ring {
+                width: 248px;
+                height: 248px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+    
+    <div class="timer-container">
+        <div class="timer-label">Meditation Timer</div>
+        
+        <div class="timer-circle" id="timerCircle">
+            <svg class="progress-ring">
+                <circle class="progress-ring-circle" cx="144" cy="144" r="144" id="progressCircle"></circle>
+            </svg>
+            <div class="time-display" id="timeDisplay">15:00</div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn btn-primary" id="startBtn">Start</button>
+            <button class="btn btn-secondary" id="resetBtn">Reset</button>
+        </div>
+        
+        <div class="status-message" id="statusMessage">Ready to begin your meditation</div>
+    </div>
+
+    <script>
+        class MeditationTimer {
+            constructor() {
+                this.totalTime = 15 * 60; // 15 minutes in seconds
+                this.timeLeft = this.totalTime;
+                this.isRunning = false;
+                this.interval = null;
+                
+                this.timeDisplay = document.getElementById('timeDisplay');
+                this.startBtn = document.getElementById('startBtn');
+                this.resetBtn = document.getElementById('resetBtn');
+                this.timerCircle = document.getElementById('timerCircle');
+                this.progressCircle = document.getElementById('progressCircle');
+                this.statusMessage = document.getElementById('statusMessage');
+                
+                this.circumference = 2 * Math.PI * 144;
+                this.progressCircle.style.strokeDasharray = this.circumference;
+                this.progressCircle.style.strokeDashoffset = this.circumference;
+                
+                this.bindEvents();
+                this.createParticles();
+                this.updateDisplay();
+            }
+            
+            bindEvents() {
+                this.startBtn.addEventListener('click', () => this.toggleTimer());
+                this.resetBtn.addEventListener('click', () => this.resetTimer());
+            }
+            
+            toggleTimer() {
+                if (this.isRunning) {
+                    this.pauseTimer();
+                } else {
+                    this.startTimer();
+                }
+            }
+            
+            startTimer() {
+                this.isRunning = true;
+                this.startBtn.textContent = 'Pause';
+                this.timerCircle.classList.add('pulsing');
+                this.statusMessage.textContent = 'Breathe deeply and focus...';
+                
+                this.interval = setInterval(() => {
+                    this.timeLeft--;
+                    this.updateDisplay();
+                    this.updateProgress();
+                    
+                    if (this.timeLeft <= 0) {
+                        this.completeTimer();
+                    }
+                }, 1000);
+            }
+            
+            pauseTimer() {
+                this.isRunning = false;
+                this.startBtn.textContent = 'Resume';
+                this.timerCircle.classList.remove('pulsing');
+                this.statusMessage.textContent = 'Timer paused';
+                clearInterval(this.interval);
+            }
+            
+            resetTimer() {
+                this.isRunning = false;
+                this.timeLeft = this.totalTime;
+                this.startBtn.textContent = 'Start';
+                this.timerCircle.classList.remove('pulsing');
+                this.statusMessage.textContent = 'Ready to begin your meditation';
+                clearInterval(this.interval);
+                this.updateDisplay();
+                this.updateProgress();
+            }
+            
+            completeTimer() {
+                this.isRunning = false;
+                this.startBtn.textContent = 'Start';
+                this.timerCircle.classList.remove('pulsing');
+                this.statusMessage.textContent = '🧘‍♀️ Meditation complete! Well done.';
+                clearInterval(this.interval);
+                
+                // Visual completion effect
+                this.timerCircle.style.animation = 'pulse 0.5s ease-in-out 3';
+                
+                // Play completion sound (simple beep using Web Audio API)
+                this.playCompletionSound();
+                
+                setTimeout(() => {
+                    this.resetTimer();
+                }, 3000);
+            }
+            
+            playCompletionSound() {
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    
+                    // Create three gentle tones
+                    for (let i = 0; i < 3; i++) {
+                        setTimeout(() => {
+                            const oscillator = audioContext.createOscillator();
+                            const gainNode = audioContext.createGain();
+                            
+                            oscillator.connect(gainNode);
+                            gainNode.connect(audioContext.destination);
+                            
+                            oscillator.frequency.setValueAtTime(440 + (i * 110), audioContext.currentTime);
+                            oscillator.type = 'sine';
+                            
+                            gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+                            gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.1);
+                            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                            
+                            oscillator.start(audioContext.currentTime);
+                            oscillator.stop(audioContext.currentTime + 0.5);
+                        }, i * 200);
+                    }
+                } catch (error) {
+                    console.log('Audio not supported');
+                }
+            }
+            
+            updateDisplay() {
+                const minutes = Math.floor(this.timeLeft / 60);
+                const seconds = this.timeLeft % 60;
+                this.timeDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+            
+            updateProgress() {
+                const progress = (this.totalTime - this.timeLeft) / this.totalTime;
+                const offset = this.circumference - (progress * this.circumference);
+                this.progressCircle.style.strokeDashoffset = offset;
+            }
+            
+            createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                
+                for (let i = 0; i < 20; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 6 + 's';
+                    particle.style.animationDuration = (6 + Math.random() * 4) + 's';
+                    particlesContainer.appendChild(particle);
+                }
+            }
+        }
+        
+        // Initialize the timer when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new MeditationTimer();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976e54d5677fc1a6',t:'MTc1NjQ5NDQ0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
