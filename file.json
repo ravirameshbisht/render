@@ -3,13 +3,7 @@
     {
       "title": "What will be the output of the following Java program",
       "description": "What is the correct way to declare an integer variable in Java?",
-      "code": "public class Test {\npublic static void main(String[] args) {\nString s1 = new String("Hello");
-        \nString s2 = new String("Hello");
-        \nSystem.out.println(s1 == s2);
-        \nSystem.out.println(s1.equals(s2));
-    \n}
-\n}
-",
+      "code": "public class Test {\npublic static void main(String[] args) {\nString s1 = new String("Hello");\nString s2 = new String("Hello");\nSystem.out.println(s1 == s2);\nSystem.out.println(s1.equals(s2));\n}\n}",
       "options": [
         "int number = 42;",
         "Integer number = 42;",
