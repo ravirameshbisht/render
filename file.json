@@ -1,0 +1,47 @@
+{
+  "beginner": [
+    {
+      "title": "Variable Declaration",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    }
+  ],
+  "intermediate": [
+    {
+      "title": "Variable Declaration",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    }
+  ],
+  "advanced": [
+    {
+      "title": "Variable Declaration",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    }
+  ]
+}
