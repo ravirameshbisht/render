@@ -164,3 +164,5 @@ The progress bar fills up as you advance through the questions, giving you a cle
 
 
 moved the "Next Question" button right next to the "Submit Answer" button for a cleaner, more intuitive layout
+
+Everytime someone takes quiz, can u generate different kinds of gems which looks very good/// and then keep on adding them at the end of the page... like achievements... user can come again next day and play quiz again to get new gems... each new gem should be unique and appealing 
