@@ -29,7 +29,7 @@
   ],
   "intermediate": [
     {
-      "title": "Variable Declaration",
+      "title": "Variable Declaration3",
       "description": "What is the correct way to declare an integer variable in Java?",
       "code": "// Which declaration is correct?\nint number = 42;",
       "options": [
@@ -44,7 +44,7 @@
   ],
   "advanced": [
     {
-      "title": "Variable Declaration",
+      "title": "Variable Declaration4",
       "description": "What is the correct way to declare an integer variable in Java?",
       "code": "// Which declaration is correct?\nint number = 42;",
       "options": [
