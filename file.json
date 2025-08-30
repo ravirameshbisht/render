@@ -1,6 +1,5 @@
 {
   "beginner": [
-    [
       {
         "title": "Variable Scope Question 1",
         "description": "Where is a local variable declared inside a method accessible?",
