@@ -36,12 +36,10 @@
             background: linear-gradient(135deg, #ef4444, #dc2626) !important;
             color: white !important;
         }
-
     </style>
 </head>
 <body class="min-h-screen gradient-bg">
     <div class="container mx-auto px-4 py-8">
-        <!-- Header -->
         <div class="text-center mb-8">
             <div class="flex items-center justify-center mb-4">
                 <div class="text-6xl mr-4">☕</div>
@@ -50,7 +48,6 @@
             <p class="text-xl text-white/90">Test your Java knowledge and level up your coding skills!</p>
         </div>
 
-        <!-- Scoreboard -->
         <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-8 card-shadow">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="text-center">
@@ -68,7 +65,6 @@
             </div>
         </div>
 
-        <!-- Difficulty Buttons -->
         <div class="flex flex-wrap justify-center gap-4 mb-8">
             <button onclick="setDifficulty('beginner')" class="difficulty-btn bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
                 🟢 Beginner
@@ -81,61 +77,42 @@
             </button>
         </div>
 
-        <!-- Quiz Card -->
         <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 card-shadow">
             <div class="mb-6">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-bold text-gray-800" id="questionTitle">Variable Declaration</h2>
+                    <h2 class="text-2xl font-bold text-gray-800" id="questionTitle">Loading...</h2>
                     <div class="flex items-center gap-3">
                         <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold" id="questionCounter">
-                            Question 1 of 2
+                            Question 0 of 0
                         </div>
                         <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-lg">
-                            <div class="text-sm font-bold" id="scoreDisplay">0/4</div>
+                            <div class="text-sm font-bold" id="scoreDisplay">0/0</div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Progress Bar -->
                 <div class="mb-4">
                     <div class="flex justify-between items-center mb-2">
                         <span class="text-sm font-medium text-gray-600">Progress</span>
-                        <span class="text-sm font-medium text-gray-600" id="progressPercent">50%</span>
+                        <span class="text-sm font-medium text-gray-600" id="progressPercent">0%</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-3">
-                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-500 ease-out" id="progressBar" style="width: 50%"></div>
+                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-500 ease-out" id="progressBar" style="width: 0%"></div>
                     </div>
                 </div>
                 
-                <p class="text-gray-600 text-lg" id="questionDescription">What is the correct way to declare an integer variable in Java?</p>
+                <p class="text-gray-600 text-lg" id="questionDescription"></p>
             </div>
 
-            <!-- Code Snippet -->
             <div class="code-block p-6 mb-6" id="codeSnippet">
-                <pre class="text-green-400 text-sm"><code>// Example code will appear here
-int myNumber = 42;
-String myText = "Hello World";</code></pre>
+                <pre class="text-green-400 text-sm"><code>// Loading code snippet...</code></pre>
             </div>
 
-            <!-- Multiple Choice Options -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" id="optionsContainer">
-                <button onclick="selectOption(0)" class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-3 rounded-lg text-left text-sm font-medium border-2 border-transparent hover:border-blue-300">
-                    <span class="font-bold text-blue-600">A)</span> int myNumber = 42;
-                </button>
-                <button onclick="selectOption(1)" class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-3 rounded-lg text-left text-sm font-medium border-2 border-transparent hover:border-blue-300">
-                    <span class="font-bold text-blue-600">B)</span> integer myNumber = 42;
-                </button>
-                <button onclick="selectOption(2)" class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-3 rounded-lg text-left text-sm font-medium border-2 border-transparent hover:border-blue-300">
-                    <span class="font-bold text-blue-600">C)</span> Int myNumber = 42;
-                </button>
-                <button onclick="selectOption(3)" class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-3 rounded-lg text-left text-sm font-medium border-2 border-transparent hover:border-blue-300">
-                    <span class="font-bold text-blue-600">D)</span> var myNumber = 42;
-                </button>
             </div>
 
-            <!-- Submit and Next Buttons -->
             <div class="flex justify-center gap-3">
-                <button onclick="submitAnswer()" id="submitBtn" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                <button onclick="submitAnswer()" id="submitBtn" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled>
                     Submit Answer
                 </button>
                 <button onclick="nextQuestion()" id="nextBtn" class="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:scale-105 shadow-lg hidden">
@@ -143,16 +120,12 @@ String myText = "Hello World";</code></pre>
                 </button>
             </div>
 
-            <!-- Result Message -->
             <div id="resultMessage" class="mt-6 text-center hidden">
                 <div class="p-4 rounded-xl font-semibold text-lg"></div>
             </div>
         </div>
-
-
     </div>
 
-    <!-- Results Popup Modal -->
     <div id="resultsModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden z-50">
         <div class="bg-white rounded-3xl p-8 max-w-md w-full card-shadow transform scale-95 transition-all duration-300">
             <div class="text-center">
@@ -194,186 +167,204 @@ String myText = "Hello World";</code></pre>
     </div>
 
     <script>
-        let currentQuestion = 0;
-        let selectedOption = -1;
+        // Game state variables, organized together for clarity.
+        let currentQuestionIndex = 0;
+        let selectedOptionIndex = -1;
         let score = 0;
-        let streak = 0;
-        let completed = 0;
+        let currentStreak = 0;
+        let completedQuestions = 0;
         let currentDifficulty = 'beginner';
-        let answerSubmitted = false; // Track if answer has been submitted
-        let correctAnswers = 0;
+        let isAnswerSubmitted = false;
+        let correctAnswersCount = 0;
         let maxStreak = 0;
+        let questionsData; // This will hold the data from the JSON file
 
-        const questions = {
-            beginner: [
-                {
-                    title: "Variable Declaration1",
-                    description: "What is the correct way to declare an integer variable in Java?",
-                    code: "// Which declaration is correct?\nint number = 42;",
-                    options: [
-                        "int number = 42;",
-                        "Integer number = 42;",
-                        "int number = \"42\";",
-                        "number int = 42;"
-                    ],
-                    correct: 0,
-                    explanation: "Option A is correct. 'int' is the primitive data type for integers."
-                },
-                {
-                    title: "Variable Declaration2",
-                    description: "What is the correct way to declare an integer variable in Java?",
-                    code: "// Which declaration is correct?\nint number = 42;",
-                    options: [
-                        "int number = 42;",
-                        "Integer number = 42;",
-                        "int number = \"42\";",
-                        "number int = 42;"
-                    ],
-                    correct: 0,
-                    explanation: "Option A is correct. 'int' is the primitive data type for integers."
-                }
-            ],
-            intermediate: [
-                {
-                    title: "Variable Declaration3",
-                    description: "What is the correct way to declare an integer variable in Java?",
-                    code: "// Which declaration is correct?\nint number = 42;",
-                    options: [
-                        "int number = 42;",
-                        "Integer number = 42;",
-                        "int number = \"42\";",
-                        "number int = 42;"
-                    ],
-                    correct: 0,
-                    explanation: "Option A is correct. 'int' is the primitive data type for integers."
-                }
-            ],
-            advanced: [
-                {
-                    title: "Variable Declaration4",
-                    description: "What is the correct way to declare an integer variable in Java?",
-                    code: "// Which declaration is correct?\nint number = 42;",
-                    options: [
-                        "int number = 42;",
-                        "Integer number = 42;",
-                        "int number = \"42\";",
-                        "number int = 42;"
-                    ],
-                    correct: 0,
-                    explanation: "Option A is correct. 'int' is the primitive data type for integers."
-                }
-            ]
+        // Element references, grouped for easier access.
+        const elements = {
+            score: document.getElementById('score'),
+            streak: document.getElementById('streak'),
+            completed: document.getElementById('completed'),
+            questionTitle: document.getElementById('questionTitle'),
+            questionDescription: document.getElementById('questionDescription'),
+            questionCounter: document.getElementById('questionCounter'),
+            progressBar: document.getElementById('progressBar'),
+            progressPercent: document.getElementById('progressPercent'),
+            scoreDisplay: document.getElementById('scoreDisplay'),
+            codeSnippet: document.getElementById('codeSnippet'),
+            optionsContainer: document.getElementById('optionsContainer'),
+            submitBtn: document.getElementById('submitBtn'),
+            nextBtn: document.getElementById('nextBtn'),
+            resultMessage: document.getElementById('resultMessage'),
+            resultsModal: document.getElementById('resultsModal'),
+            finalScore: document.getElementById('finalScore'),
+            correctAnswers: document.getElementById('correctAnswers'),
+            maxStreak: document.getElementById('maxStreak'),
+            accuracy: document.getElementById('accuracy')
         };
+        
+        /**
+         * Fetches quiz data from a JSON file to prevent caching.
+         */
+        async function loadQuizData() {
+            try {
+                // Use a timestamp to bust the browser cache.
+                const cacheBuster = `?v=${new Date().getTime()}`;
+                const url = `https://raw.githubusercontent.com/ravirameshbisht/render/refs/heads/main/file.json${cacheBuster}`;
+                
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                questionsData = await response.json();
+                initializeGame();
+            } catch (error) {
+                console.error('Could not load quiz data:', error);
+                elements.questionTitle.textContent = "Error Loading Questions";
+                elements.questionDescription.textContent = "Please check the console for details and ensure the JSON file is correct.";
+            }
+        }
+        
+        /**
+         * Initializes the game state after data has been loaded.
+         */
+        function initializeGame() {
+            setDifficulty('beginner');
+            // Add a ring to the default difficulty button on load.
+            document.querySelector('.difficulty-btn').classList.add('ring-4', 'ring-white');
+            updateScoreboard();
+        }
 
-        function setDifficulty(difficulty) {
+        /**
+         * Sets the current difficulty and resets the game state.
+         * @param {string} difficulty - 'beginner', 'intermediate', or 'advanced'.
+         * @param {Event} event - The click event object.
+         */
+        function setDifficulty(difficulty, event) {
             currentDifficulty = difficulty;
-            currentQuestion = 0;
+            currentQuestionIndex = 0;
             
-            // Update button styles
+            // Reset all game stats.
+            score = 0;
+            currentStreak = 0;
+            completedQuestions = 0;
+            correctAnswersCount = 0;
+            maxStreak = 0;
+            updateScoreboard();
+
+            // Update button styles to highlight the active difficulty.
             document.querySelectorAll('.difficulty-btn').forEach(btn => {
                 btn.classList.remove('ring-4', 'ring-white');
             });
-            event.target.classList.add('ring-4', 'ring-white');
+            const selectedBtn = event ? event.target : document.querySelector(`.difficulty-btn[onclick*="${difficulty}"]`);
+            if (selectedBtn) {
+                selectedBtn.classList.add('ring-4', 'ring-white');
+            }
             
             loadQuestion();
         }
 
+        /**
+         * Loads and displays the current question.
+         */
         function loadQuestion() {
-            const question = questions[currentDifficulty][currentQuestion];
-            const totalQuestions = questions[currentDifficulty].length;
+            if (!questionsData) return; // Wait for data to be loaded.
             
-            document.getElementById('questionTitle').textContent = question.title;
-            document.getElementById('questionDescription').textContent = question.description;
-            document.getElementById('questionCounter').textContent = `Question ${currentQuestion + 1} of ${totalQuestions}`;
+            const question = questionsData[currentDifficulty][currentQuestionIndex];
+            const totalQuestions = questionsData[currentDifficulty].length;
             
-            // Update progress bar
-            const progress = ((currentQuestion + 1) / totalQuestions) * 100;
-            document.getElementById('progressBar').style.width = `${progress}%`;
-            document.getElementById('progressPercent').textContent = `${Math.round(progress)}%`;
+            // Update quiz card content.
+            elements.questionTitle.textContent = question.title;
+            elements.questionDescription.textContent = question.description;
+            elements.questionCounter.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
             
-            // Update score display
-            const totalPossibleScore = totalQuestions * 2;
-            document.getElementById('scoreDisplay').textContent = `${score}/${totalPossibleScore}`;
+            // Update progress bar.
+            const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+            elements.progressBar.style.width = `${progress}%`;
+            elements.progressPercent.textContent = `${Math.round(progress)}%`;
             
-            document.getElementById('codeSnippet').innerHTML = `<pre class="text-green-400 text-sm"><code>${question.code}</code></pre>`;
+            updateScoreboard();
             
-            const optionsContainer = document.getElementById('optionsContainer');
-            optionsContainer.innerHTML = '';
+            // Display code snippet with proper line breaks.
+            elements.codeSnippet.innerHTML = `<pre class="text-green-400 text-sm"><code>${question.code.replace(/\\n/g, '\n')}</code></pre>`;
             
+            // Generate option buttons dynamically.
+            elements.optionsContainer.innerHTML = '';
             question.options.forEach((option, index) => {
                 const button = document.createElement('button');
                 button.onclick = () => selectOption(index);
                 button.className = 'option-btn bg-white hover:bg-blue-50 text-gray-800 p-3 rounded-xl text-left text-sm font-medium border border-gray-200 hover:border-blue-300 shadow-sm';
                 button.innerHTML = `<span class="font-bold text-blue-600">${String.fromCharCode(65 + index)})</span> ${option}`;
-                optionsContainer.appendChild(button);
+                elements.optionsContainer.appendChild(button);
             });
             
-            selectedOption = -1;
-            answerSubmitted = false; // Reset submission flag
-            document.getElementById('submitBtn').disabled = true;
-            document.getElementById('resultMessage').classList.add('hidden');
-            document.getElementById('nextBtn').classList.add('hidden');
+            // Reset state for a new question.
+            selectedOptionIndex = -1;
+            isAnswerSubmitted = false;
+            elements.submitBtn.disabled = true;
+            elements.resultMessage.classList.add('hidden');
+            elements.nextBtn.classList.add('hidden');
         }
 
+        /**
+         * Highlights the selected option.
+         * @param {number} index - The index of the selected option.
+         */
         function selectOption(index) {
-            // Prevent selection if answer already submitted
-            if (answerSubmitted) return;
+            if (isAnswerSubmitted) return;
+            selectedOptionIndex = index;
             
-            selectedOption = index;
-            
-            // Reset all options
+            // Reset all option button styles.
             document.querySelectorAll('.option-btn').forEach(btn => {
                 btn.classList.remove('ring-4', 'ring-blue-400', 'bg-blue-100');
                 btn.classList.add('bg-gray-100');
             });
             
-            // Highlight selected option
+            // Highlight the newly selected button.
             const selectedBtn = document.querySelectorAll('.option-btn')[index];
             selectedBtn.classList.remove('bg-gray-100');
             selectedBtn.classList.add('bg-blue-100', 'ring-4', 'ring-blue-400');
             
-            document.getElementById('submitBtn').disabled = false;
+            elements.submitBtn.disabled = false;
         }
 
+        /**
+         * Submits the user's answer and provides feedback.
+         */
         function submitAnswer() {
-            // Prevent multiple submissions
-            if (answerSubmitted) return;
-            answerSubmitted = true;
+            if (isAnswerSubmitted) return;
+            isAnswerSubmitted = true;
             
-            const question = questions[currentDifficulty][currentQuestion];
-            const isCorrect = selectedOption === question.correct;
+            const question = questionsData[currentDifficulty][currentQuestionIndex];
+            const isCorrect = selectedOptionIndex === question.correct;
             
-            // Disable all option buttons to prevent further selection
+            // Disable all options and show correct/incorrect styles.
             document.querySelectorAll('.option-btn').forEach((btn, index) => {
                 btn.disabled = true;
                 btn.classList.remove('hover:bg-gray-200', 'hover:border-blue-300');
                 btn.style.cursor = 'not-allowed';
-                btn.onclick = null; // Remove click handlers
-                
+                btn.onclick = null;
                 if (index === question.correct) {
                     btn.classList.add('correct');
-                } else if (index === selectedOption && !isCorrect) {
+                } else if (index === selectedOptionIndex && !isCorrect) {
                     btn.classList.add('incorrect');
                 }
             });
             
-            // Update score and stats
+            // Update scores and streaks.
             if (isCorrect) {
-                score += 2; // Each correct answer is worth 2 points
-                streak++;
-                correctAnswers++;
-                maxStreak = Math.max(maxStreak, streak);
+                score += 2;
+                currentStreak++;
+                correctAnswersCount++;
+                maxStreak = Math.max(maxStreak, currentStreak);
             } else {
-                streak = 0;
+                currentStreak = 0;
             }
-            completed++;
+            completedQuestions++;
             
             updateScoreboard();
             
-            // Show result message
-            const resultDiv = document.getElementById('resultMessage');
-            const messageDiv = resultDiv.querySelector('div');
-            
+            // Display result message.
+            const messageDiv = elements.resultMessage.querySelector('div');
             if (isCorrect) {
                 messageDiv.innerHTML = `🎉 Correct! Well done!<br><small class="text-sm opacity-80">${question.explanation}</small>`;
                 messageDiv.className = 'p-4 rounded-xl font-semibold text-lg bg-green-100 text-green-800';
@@ -381,109 +372,108 @@ String myText = "Hello World";</code></pre>
                 messageDiv.innerHTML = `❌ Incorrect. The correct answer is ${String.fromCharCode(65 + question.correct)}.<br><small class="text-sm opacity-80">${question.explanation}</small>`;
                 messageDiv.className = 'p-4 rounded-xl font-semibold text-lg bg-red-100 text-red-800';
             }
-            
-            resultDiv.classList.remove('hidden');
-            document.getElementById('submitBtn').disabled = true;
-            document.getElementById('nextBtn').classList.remove('hidden');
+            elements.resultMessage.classList.remove('hidden');
+            elements.submitBtn.disabled = true;
+            elements.nextBtn.classList.remove('hidden');
         }
 
+        /**
+         * Advances to the next question or shows results if the quiz is complete.
+         */
         function nextQuestion() {
-            const totalQuestions = questions[currentDifficulty].length;
-            
-            if (currentQuestion + 1 >= totalQuestions) {
-                // Show results popup
+            const totalQuestions = questionsData[currentDifficulty].length;
+            if (currentQuestionIndex + 1 >= totalQuestions) {
                 showResults();
             } else {
-                currentQuestion++;
+                currentQuestionIndex++;
                 loadQuestion();
             }
         }
 
+        /**
+         * Updates all the scoreboard metrics on the UI.
+         */
         function updateScoreboard() {
-            document.getElementById('score').textContent = score;
-            document.getElementById('streak').textContent = streak;
-            document.getElementById('completed').textContent = completed;
+            elements.score.textContent = score;
+            elements.streak.textContent = currentStreak;
+            elements.completed.textContent = completedQuestions;
             
-            // Update score display
-            const totalQuestions = questions[currentDifficulty].length;
+            const totalQuestions = questionsData && questionsData[currentDifficulty] ? questionsData[currentDifficulty].length : 0;
             const totalPossibleScore = totalQuestions * 2;
-            document.getElementById('scoreDisplay').textContent = `${score}/${totalPossibleScore}`;
+            elements.scoreDisplay.textContent = `${score}/${totalPossibleScore}`;
         }
 
+        /**
+         * Displays the final results modal.
+         */
         function showResults() {
-            const totalQuestions = questions[currentDifficulty].length;
-            const accuracy = Math.round((correctAnswers / totalQuestions) * 100);
+            const totalQuestions = questionsData[currentDifficulty].length;
+            const accuracy = totalQuestions > 0 ? Math.round((correctAnswersCount / totalQuestions) * 100) : 0;
             
-            // Update results modal content
-            document.getElementById('finalScore').textContent = score;
-            document.getElementById('correctAnswers').textContent = `${correctAnswers}/${totalQuestions}`;
-            document.getElementById('maxStreak').textContent = maxStreak;
-            document.getElementById('accuracy').textContent = `${accuracy}%`;
+            elements.finalScore.textContent = score;
+            elements.correctAnswers.textContent = `${correctAnswersCount}/${totalQuestions}`;
+            elements.maxStreak.textContent = maxStreak;
+            elements.accuracy.textContent = `${accuracy}%`;
             
-            // Set emoji and message based on performance
-            const resultsEmoji = document.getElementById('resultsEmoji');
-            const resultsTitle = document.getElementById('resultsTitle');
-            const resultsSubtitle = document.getElementById('resultsSubtitle');
-            
+            // Set emoji and message based on performance.
             if (accuracy >= 90) {
-                resultsEmoji.textContent = '🏆';
-                resultsTitle.textContent = 'Outstanding!';
-                resultsSubtitle.textContent = 'You\'re a Java master!';
+                elements.resultsEmoji.textContent = '🏆';
+                elements.resultsTitle.textContent = 'Outstanding!';
+                elements.resultsSubtitle.textContent = 'You\'re a Java master!';
             } else if (accuracy >= 70) {
-                resultsEmoji.textContent = '🎉';
-                resultsTitle.textContent = 'Great Job!';
-                resultsSubtitle.textContent = 'You\'re doing really well!';
+                elements.resultsEmoji.textContent = '🎉';
+                elements.resultsTitle.textContent = 'Great Job!';
+                elements.resultsSubtitle.textContent = 'You\'re doing really well!';
             } else if (accuracy >= 50) {
-                resultsEmoji.textContent = '👍';
-                resultsTitle.textContent = 'Good Effort!';
-                resultsSubtitle.textContent = 'Keep practicing to improve!';
+                elements.resultsEmoji.textContent = '👍';
+                elements.resultsTitle.textContent = 'Good Effort!';
+                elements.resultsSubtitle.textContent = 'Keep practicing to improve!';
             } else {
-                resultsEmoji.textContent = '📚';
-                resultsTitle.textContent = 'Keep Learning!';
-                resultsSubtitle.textContent = 'Practice makes perfect!';
+                elements.resultsEmoji.textContent = '📚';
+                elements.resultsTitle.textContent = 'Keep Learning!';
+                elements.resultsSubtitle.textContent = 'Practice makes perfect!';
             }
             
-            // Show modal with animation
-            const modal = document.getElementById('resultsModal');
-            modal.classList.remove('hidden');
+            elements.resultsModal.classList.remove('hidden');
             setTimeout(() => {
-                modal.querySelector('.bg-white').classList.remove('scale-95');
-                modal.querySelector('.bg-white').classList.add('scale-100');
+                elements.resultsModal.querySelector('.bg-white').classList.remove('scale-95');
+                elements.resultsModal.querySelector('.bg-white').classList.add('scale-100');
             }, 10);
         }
 
+        /**
+         * Hides the results modal.
+         */
         function closeResults() {
-            const modal = document.getElementById('resultsModal');
-            modal.querySelector('.bg-white').classList.remove('scale-100');
-            modal.querySelector('.bg-white').classList.add('scale-95');
+            const modalInner = elements.resultsModal.querySelector('.bg-white');
+            modalInner.classList.remove('scale-100');
+            modalInner.classList.add('scale-95');
             setTimeout(() => {
-                modal.classList.add('hidden');
+                elements.resultsModal.classList.add('hidden');
             }, 300);
         }
 
+        /**
+         * Resets the game to its initial state.
+         */
         function restartQuiz() {
-            // Reset all variables
-            currentQuestion = 0;
-            selectedOption = -1;
+            currentQuestionIndex = 0;
+            selectedOptionIndex = -1;
             score = 0;
-            streak = 0;
-            completed = 0;
-            correctAnswers = 0;
+            currentStreak = 0;
+            completedQuestions = 0;
+            correctAnswersCount = 0;
             maxStreak = 0;
-            answerSubmitted = false;
-            
-            // Update scoreboard
+            isAnswerSubmitted = false;
             updateScoreboard();
-            
-            // Close modal and reload question
             closeResults();
             setTimeout(() => {
                 loadQuestion();
             }, 300);
         }
 
-        // Initialize the game
-        loadQuestion();
+        // Start the game by loading the data from the JSON file.
+        loadQuizData();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976ec146b7b8c1a6',t:'MTc1NjQ5ODg4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
