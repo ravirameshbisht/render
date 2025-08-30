@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Coding Challenge Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .code-block {
+            background: #1a1a1a;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+        }
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .option-btn:disabled {
+            opacity: 0.8;
+            cursor: not-allowed !important;
+        }
+        .correct {
+            background: linear-gradient(135deg, #10b981, #059669) !important;
+            color: white !important;
+        }
+        .incorrect {
+            background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+            color: white !important;
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body class="min-h-screen gradient-bg">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">☕ Java Challenge</h1>
+            <p class="text-xl text-white/90">Test your Java programming knowledge!</p>
+        </div>
+
+        <!-- Game Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 text-center">
+                <div class="text-2xl font-bold text-white" id="currentScore">0</div>
+                <div class="text-sm text-white/80">Score</div>
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 text-center">
+                <div class="text-2xl font-bold text-white" id="questionCounter">1/10</div>
+                <div class="text-sm text-white/80">Question</div>
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 text-center">
+                <div class="text-2xl font-bold text-white" id="streakCounter">0</div>
+                <div class="text-sm text-white/80">Streak</div>
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 text-center">
+                <div class="text-2xl font-bold text-white" id="timeLeft">30</div>
+                <div class="text-sm text-white/80">Time</div>
+            </div>
+        </div>
+
+        <!-- Main Game Card -->
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-3xl card-shadow overflow-hidden">
+                <!-- Progress Bar -->
+                <div class="bg-gray-200 h-2">
+                    <div id="progressBar" class="bg-gradient-to-r from-purple-500 to-pink-500 h-full transition-all duration-500" style="width: 10%"></div>
+                </div>
+
+                <div class="p-8">
+                    <!-- Question -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4" id="questionTitle">Question 1</h2>
+                        <p class="text-lg text-gray-700 mb-6" id="questionText">What will be the output of this Java code?</p>
+                        
+                        <!-- Code Block -->
+                        <div class="code-block p-6 mb-6">
+                            <pre class="text-green-400 text-sm overflow-x-auto" id="codeBlock">
+public class Main {
+    public static void main(String[] args) {
+        int x = 5;
+        int y = ++x;
+        System.out.println(x + " " + y);
+    }
+}</pre>
+                        </div>
+                    </div>
+
+                    <!-- Answer Options -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <button class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-4 rounded-2xl text-left font-medium" onclick="selectAnswer(0)">
+                            <span class="block text-sm text-gray-500 mb-1">A)</span>
+                            <span id="option0">5 5</span>
+                        </button>
+                        <button class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-4 rounded-2xl text-left font-medium" onclick="selectAnswer(1)">
+                            <span class="block text-sm text-gray-500 mb-1">B)</span>
+                            <span id="option1">6 6</span>
+                        </button>
+                        <button class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-4 rounded-2xl text-left font-medium" onclick="selectAnswer(2)">
+                            <span class="block text-sm text-gray-500 mb-1">C)</span>
+                            <span id="option2">5 6</span>
+                        </button>
+                        <button class="option-btn bg-gray-100 hover:bg-gray-200 text-gray-800 p-4 rounded-2xl text-left font-medium" onclick="selectAnswer(3)">
+                            <span class="block text-sm text-gray-500 mb-1">D)</span>
+                            <span id="option3">6 5</span>
+                        </button>
+                    </div>
+
+                    <!-- Next Button -->
+                    <div class="text-center">
+                        <button id="nextBtn" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed" onclick="nextQuestion()" disabled>
+                            Next Question →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="resultsModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full card-shadow transform scale-95 opacity-0 transition-all duration-300">
+            <div class="text-center">
+                <div class="text-6xl mb-4" id="resultsEmoji">🎉</div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-2" id="resultsTitle">Quiz Complete!</h2>
+                <p class="text-gray-600 mb-6" id="resultsSubtitle">Great job completing all questions!</p>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 mb-6">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600" id="finalScore">0</div>
+                            <div class="text-sm text-gray-600">Final Score</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-green-600" id="correctAnswers">0</div>
+                            <div class="text-sm text-gray-600">Correct</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-purple-600" id="maxStreak">0</div>
+                            <div class="text-sm text-gray-600">Best Streak</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-orange-600" id="accuracy">0%</div>
+                            <div class="text-sm text-gray-600">Accuracy</div>
+                        </div>
+                    </div>
+                    <div class="text-center border-t border-gray-200 pt-4">
+                        <div class="text-2xl font-bold text-indigo-600" id="totalTime">0s</div>
+                        <div class="text-sm text-gray-600">Total Time</div>
+                    </div>
+                </div>
+                
+                <div class="flex gap-3">
+                    <button onclick="restartQuiz()" class="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                        Try Again
+                    </button>
+                    <button onclick="closeResults()" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Game state
+        let currentQuestion = 0;
+        let score = 0;
+        let streak = 0;
+        let maxStreak = 0;
+        let correctCount = 0;
+        let timeRemaining = 30;
+        let timer = null;
+        let selectedAnswer = null;
+        let quizStartTime = null;
+        let totalQuizTime = 0;
+
+        // Java questions database
+        const questions = [
+            {
+                title: "Pre-increment Operator",
+                question: "What will be the output of this Java code?",
+                code: `public class Main {
+    public static void main(String[] args) {
+        int x = 5;
+        int y = ++x;
+        System.out.println(x + " " + y);
+    }
+}`,
+                options: ["5 5", "6 6", "5 6", "6 5"],
+                correct: 1,
+                explanation: "++x increments x first, then returns the new value. So x becomes 6, and y gets 6."
+            },
+            {
+                title: "String Comparison",
+                question: "What will be the output?",
+                code: `public class Main {
+    public static void main(String[] args) {
+        String a = "Hello";
+        String b = "Hello";
+        System.out.println(a == b);
+    }
+}`,
+                options: ["true", "false", "Compilation error", "Runtime error"],
+                correct: 0,
+                explanation: "String literals are stored in the string pool, so both variables reference the same object."
+            },
+            {
+                title: "Array Initialization",
+                question: "What will be the output?",
+                code: `public class Main {
+    public static void main(String[] args) {
+        int[] arr = new int[3];
+        System.out.println(arr[0]);
+    }
+}`,
+                options: ["0", "null", "Compilation error", "Random value"],
+                correct: 0,
+                explanation: "Arrays of primitive types are initialized with default values. For int, the default is 0."
+            },
+            {
+                title: "Method Overloading",
+                question: "Which method will be called?",
+                code: `public class Main {
+    static void test(int x) { System.out.println("int"); }
+    static void test(double x) { System.out.println("double"); }
+    
+    public static void main(String[] args) {
+        test(5);
+    }
+}`,
+                options: ["int", "double", "Compilation error", "Both methods"],
+                correct: 0,
+                explanation: "5 is an int literal, so the int version of the method is called."
+            },
+            {
+                title: "Loop Behavior",
+                question: "How many times will 'Hello' be printed?",
+                code: `public class Main {
+    public static void main(String[] args) {
+        for(int i = 0; i < 3; i++) {
+            System.out.println("Hello");
+        }
+    }
+}`,
+                options: ["2", "3", "4", "Infinite"],
+                correct: 1,
+                explanation: "The loop runs while i < 3, starting from 0. So it runs for i = 0, 1, 2 (3 times)."
+            },
+            {
+                title: "Static Variables",
+                question: "What will be the output?",
+                code: `class Counter {
+    static int count = 0;
+    Counter() { count++; }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        new Counter();
+        new Counter();
+        System.out.println(Counter.count);
+    }
+}`,
+                options: ["0", "1", "2", "Compilation error"],
+                correct: 2,
+                explanation: "Static variables are shared across all instances. Each constructor call increments count."
+            },
+            {
+                title: "Exception Handling",
+                question: "What will be the output?",
+                code: `public class Main {
+    public static void main(String[] args) {
+        try {
+            int x = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Caught");
+        }
+        System.out.println("End");
+    }
+}`,
+                options: ["Caught", "End", "Caught\\nEnd", "Runtime error"],
+                correct: 2,
+                explanation: "The exception is caught and handled, then execution continues with 'End'."
+            },
+            {
+                title: "Inheritance",
+                question: "What will be the output?",
+                code: `class Parent {
+    void show() { System.out.println("Parent"); }
+}
+class Child extends Parent {
+    void show() { System.out.println("Child"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.show();
+    }
+}`,
+                options: ["Parent", "Child", "Compilation error", "Both"],
+                correct: 1,
+                explanation: "Method overriding: the actual object type (Child) determines which method is called."
+            },
+            {
+                title: "Final Variables",
+                question: "What happens with this code?",
+                code: `public class Main {
+    public static void main(String[] args) {
+        final int x = 10;
+        x = 20;
+        System.out.println(x);
+    }
+}`,
+                options: ["10", "20", "Compilation error", "Runtime error"],
+                correct: 2,
+                explanation: "Final variables cannot be reassigned after initialization. This causes a compilation error."
+            },
+            {
+                title: "Switch Statement",
+                question: "What will be the output?",
+                code: `public class Main {
+    public static void main(String[] args) {
+        int x = 2;
+        switch(x) {
+            case 1: System.out.println("One");
+            case 2: System.out.println("Two");
+            case 3: System.out.println("Three");
+            default: System.out.println("Default");
+        }
+    }
+}`,
+                options: ["Two", "Two\\nThree\\nDefault", "Default", "Compilation error"],
+                correct: 1,
+                explanation: "Without break statements, execution falls through to subsequent cases."
+            }
+        ];
+
+        // Initialize game
+        function initGame() {
+            currentQuestion = 0;
+            score = 0;
+            streak = 0;
+            maxStreak = 0;
+            correctCount = 0;
+            selectedAnswer = null;
+            quizStartTime = Date.now();
+            totalQuizTime = 0;
+            updateDisplay();
+            loadQuestion();
+            startTimer();
+        }
+
+        // Load current question
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            document.getElementById('questionTitle').textContent = `Question ${currentQuestion + 1}: ${q.title}`;
+            document.getElementById('questionText').textContent = q.question;
+            document.getElementById('codeBlock').textContent = q.code;
+            
+            // Load options
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`option${i}`).textContent = q.options[i];
+            }
+            
+            // Reset button states
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => {
+                btn.disabled = false;
+                btn.classList.remove('correct', 'incorrect');
+                btn.classList.add('bg-gray-100', 'hover:bg-gray-200');
+            });
+            
+            document.getElementById('nextBtn').disabled = true;
+            selectedAnswer = null;
+            
+            // Update progress
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+        }
+
+        // Handle answer selection
+        function selectAnswer(answerIndex) {
+            if (selectedAnswer !== null) return; // Already answered
+            
+            selectedAnswer = answerIndex;
+            const q = questions[currentQuestion];
+            const buttons = document.querySelectorAll('.option-btn');
+            
+            // Disable all buttons
+            buttons.forEach(btn => btn.disabled = true);
+            
+            // Show correct/incorrect
+            buttons[answerIndex].classList.remove('bg-gray-100', 'hover:bg-gray-200');
+            buttons[q.correct].classList.remove('bg-gray-100', 'hover:bg-gray-200');
+            
+            if (answerIndex === q.correct) {
+                buttons[answerIndex].classList.add('correct');
+                score += Math.max(10, timeRemaining);
+                streak++;
+                correctCount++;
+                maxStreak = Math.max(maxStreak, streak);
+            } else {
+                buttons[answerIndex].classList.add('incorrect');
+                buttons[q.correct].classList.add('correct');
+                streak = 0;
+            }
+            
+            updateDisplay();
+            document.getElementById('nextBtn').disabled = false;
+            clearInterval(timer);
+        }
+
+        // Move to next question
+        function nextQuestion() {
+            currentQuestion++;
+            
+            if (currentQuestion >= questions.length) {
+                showResults();
+            } else {
+                loadQuestion();
+                timeRemaining = 30;
+                startTimer();
+            }
+        }
+
+        // Timer functionality
+        function startTimer() {
+            timeRemaining = 30;
+            updateDisplay();
+            
+            timer = setInterval(() => {
+                timeRemaining--;
+                updateDisplay();
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(timer);
+                    // Auto-select wrong answer if time runs out
+                    if (selectedAnswer === null) {
+                        const correctAnswer = questions[currentQuestion].correct;
+                        let wrongAnswer = (correctAnswer + 1) % 4;
+                        selectAnswer(wrongAnswer);
+                    }
+                }
+            }, 1000);
+        }
+
+        // Format time display
+        function formatTime(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            
+            if (hours > 0) {
+                return `${hours}h ${minutes}m ${secs}s`;
+            } else if (minutes > 0) {
+                return `${minutes}m ${secs}s`;
+            } else {
+                return `${secs}s`;
+            }
+        }
+
+        // Update display
+        function updateDisplay() {
+            document.getElementById('currentScore').textContent = score;
+            document.getElementById('questionCounter').textContent = `${currentQuestion + 1}/${questions.length}`;
+            document.getElementById('streakCounter').textContent = streak;
+            document.getElementById('timeLeft').textContent = formatTime(timeRemaining);
+            
+            // Add pulse animation for low time
+            const timeElement = document.getElementById('timeLeft');
+            if (timeRemaining <= 5) {
+                timeElement.parentElement.classList.add('pulse-animation');
+            } else {
+                timeElement.parentElement.classList.remove('pulse-animation');
+            }
+        }
+
+        // Show results modal
+        function showResults() {
+            const modal = document.getElementById('resultsModal');
+            const modalContent = modal.querySelector('div > div');
+            
+            // Calculate total time taken
+            totalQuizTime = Math.floor((Date.now() - quizStartTime) / 1000);
+            
+            // Calculate stats
+            const accuracy = Math.round((correctCount / questions.length) * 100);
+            const maxPossibleScore = questions.length * 30; // 30 points max per question
+            
+            // Update results
+            document.getElementById('finalScore').textContent = `${score}/${maxPossibleScore}`;
+            document.getElementById('correctAnswers').textContent = `${correctCount}/${questions.length}`;
+            document.getElementById('maxStreak').textContent = maxStreak;
+            document.getElementById('accuracy').textContent = `${accuracy}%`;
+            document.getElementById('totalTime').textContent = formatTime(totalQuizTime);
+            
+            // Set emoji and message based on performance
+            let emoji, title, subtitle;
+            if (accuracy >= 90) {
+                emoji = '🏆';
+                title = 'Outstanding!';
+                subtitle = 'You\'re a Java master!';
+            } else if (accuracy >= 70) {
+                emoji = '🎉';
+                title = 'Great Job!';
+                subtitle = 'You know your Java well!';
+            } else if (accuracy >= 50) {
+                emoji = '👍';
+                title = 'Good Effort!';
+                subtitle = 'Keep practicing to improve!';
+            } else {
+                emoji = '📚';
+                title = 'Keep Learning!';
+                subtitle = 'Practice makes perfect!';
+            }
+            
+            document.getElementById('resultsEmoji').textContent = emoji;
+            document.getElementById('resultsTitle').textContent = title;
+            document.getElementById('resultsSubtitle').textContent = subtitle;
+            
+            // Show modal with animation
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+
+        // Close results modal
+        function closeResults() {
+            const modal = document.getElementById('resultsModal');
+            const modalContent = modal.querySelector('div > div');
+            
+            modalContent.classList.add('scale-95', 'opacity-0');
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            closeResults();
+            setTimeout(() => {
+                initGame();
+            }, 300);
+        }
+
+        // Start the game when page loads
+        window.addEventListener('load', initGame);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9773c8d5d3a3c1a6',t:'MTc1NjU1MTYyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
