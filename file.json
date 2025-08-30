@@ -1,7 +1,7 @@
 {
   "beginner": [
     {
-      "title": "Variable Declaration1",
+      "title": "Variable Declaration001",
       "description": "What is the correct way to declare an integer variable in Java?",
       "code": "// Which declaration is correct?\nint number = 42;",
       "options": [
