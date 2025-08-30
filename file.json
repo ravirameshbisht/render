@@ -1,7 +1,59 @@
 {
   "beginner": [
     {
-      "title": "Variable Declaration001",
+      "title": "Data Type Question 1",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 2",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 3",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 4",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 5",
       "description": "What is the correct way to declare an integer variable in Java?",
       "code": "// Which declaration is correct?\nint number = 42;",
       "options": [
@@ -14,7 +66,1229 @@
       "explanation": "Option A is correct. 'int' is the primitive data type for integers."
     },
     {
-      "title": "Variable Declaration2",
+      "title": "Data Type Question 6",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 7",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 8",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 9",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 10",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 11",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 12",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 13",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 14",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 15",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 16",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 17",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 18",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 19",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 20",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 21",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 22",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 23",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 24",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 25",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 26",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 27",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 28",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 29",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 30",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 31",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 32",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 33",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 34",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 35",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 36",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 37",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 38",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 39",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 40",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 41",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 42",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 43",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 44",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 45",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 46",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 47",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 48",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 49",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 50",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 51",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 52",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 53",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 54",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 55",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 56",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 57",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 58",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 59",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 60",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 61",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 62",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 63",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 64",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 65",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 66",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 67",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 68",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 69",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 70",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 71",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 72",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 73",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 74",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 75",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 76",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 77",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 78",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 79",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 80",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 81",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 82",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 83",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 84",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 85",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 86",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 87",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 88",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 89",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 90",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 91",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 92",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 93",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 94",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 95",
+      "description": "What is the correct way to declare an integer variable in Java?",
+      "code": "// Which declaration is correct?\nint number = 42;",
+      "options": [
+        "int number = 42;",
+        "Integer number = 42;",
+        "int number = \"42\";",
+        "number int = 42;"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'int' is the primitive data type for integers."
+    },
+    {
+      "title": "Data Type Question 96",
+      "description": "Which data type is used to store a single character in Java?",
+      "code": "// Choose the correct data type\nchar letter = 'A';",
+      "options": [
+        "char",
+        "String",
+        "int",
+        "Character[]"
+      ],
+      "correct": 0,
+      "explanation": "Option A is correct. 'char' stores a single 16-bit Unicode character."
+    },
+    {
+      "title": "Boolean Type Question 97",
+      "description": "Which keyword is used for a boolean type in Java?",
+      "code": "// Which is correct?\nboolean flag = true;",
+      "options": [
+        "bool",
+        "boolean",
+        "Boolean",
+        "bit"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 'boolean' is the keyword for true/false values."
+    },
+    {
+      "title": "String Declaration Question 98",
+      "description": "How do you correctly declare a String variable?",
+      "code": "// Which is correct?\nString name = \"John\";",
+      "options": [
+        "String name = 'John';",
+        "string name = \"John\";",
+        "String name = \"John\";",
+        "char name = \"John\";"
+      ],
+      "correct": 2,
+      "explanation": "Option C is correct. String literals must use double quotes."
+    },
+    {
+      "title": "Arithmetic Operator Question 99",
+      "description": "What is the output of 5 + 3 in Java?",
+      "code": "// Arithmetic operation\nint result = 5 + 3;",
+      "options": [
+        "53",
+        "8",
+        "35",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Option B is correct. 5 + 3 results in integer addition = 8."
+    },
+    {
+      "title": "Variable Declaration Question 100",
       "description": "What is the correct way to declare an integer variable in Java?",
       "code": "// Which declaration is correct?\nint number = 42;",
       "options": [
