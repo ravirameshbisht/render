@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaPrep - Success Stories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .scrollable-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .scrollable-container::-webkit-scrollbar-thumb {
+            background-color: #a0aec0;
+            border-radius: 4px;
+        }
+        .scrollable-container::-webkit-scrollbar-track {
+            background-color: #e2e8f0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+                Our Users Love Us
+            </h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                Hear from our successful users and see the proof of their hard work.
+            </p>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Website Reviews
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Real feedback from real users who have trusted us with their interview preparation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review Card 1 -->
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full mr-4" src="https://placehold.co/48x48/667eea/ffffff?text=U" alt="User profile image">
+                        <div>
+                            <p class="font-bold text-gray-900">Alex R.</p>
+                            <div class="flex text-yellow-400">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "The comprehensive question bank was a game-changer. I landed a senior developer role thanks to JavaPrep's mock interviews!"
+                    </p>
+                </div>
+                
+                <!-- Review Card 2 -->
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full mr-4" src="https://placehold.co/48x48/764ba2/ffffff?text=J" alt="User profile image">
+                        <div>
+                            <p class="font-bold text-gray-900">Jane D.</p>
+                            <div class="flex text-yellow-400">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "The coding challenges were perfect. They helped me build confidence and solve problems quickly during my technical interviews."
+                    </p>
+                </div>
+                
+                <!-- Review Card 3 -->
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full mr-4" src="https://placehold.co/48x48/9b2c2c/ffffff?text=M" alt="User profile image">
+                        <div>
+                            <p class="font-bold text-gray-900">Michael S.</p>
+                            <div class="flex text-yellow-400">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "I was struggling with Spring Boot concepts. The detailed explanations on this platform cleared up all my doubts. Highly recommended!"
+                    </p>
+                </div>
+
+                <!-- Review Card 4 -->
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full mr-4" src="https://placehold.co/48x48/3182ce/ffffff?text=L" alt="User profile image">
+                        <div>
+                            <p class="font-bold text-gray-900">Lisa P.</p>
+                            <div class="flex text-yellow-400">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "A solid resource for anyone preparing for a Java role. The UI is clean, and the content is very well-structured."
+                    </p>
+                </div>
+
+                <!-- Review Card 5 -->
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full mr-4" src="https://placehold.co/48x48/38a169/ffffff?text=C" alt="User profile image">
+                        <div>
+                            <p class="font-bold text-gray-900">Chris W.</p>
+                            <div class="flex text-yellow-400">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "I've tried a few other sites, but JavaPrep's depth of content is unmatched. The free plan is a great way to test the waters."
+                    </p>
+                </div>
+
+                <!-- Review Card 6 -->
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover">
+                    <div class="flex items-center mb-4">
+                        <img class="h-12 w-12 rounded-full mr-4" src="https://placehold.co/48x48/9f7aea/ffffff?text=S" alt="User profile image">
+                        <div>
+                            <p class="font-bold text-gray-900">Sara G.</p>
+                            <div class="flex text-yellow-400">
+                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "The platform gave me the confidence to nail my technical interview. I highly recommend the mock interview feature for anyone serious about landing a job."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Letters Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Offer Letters
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    The ultimate proof of our users' success. Check out some of the offer letters they have shared with us.
+                </p>
+            </div>
+
+            <div class="scrollable-container flex overflow-x-auto space-x-6 pb-4">
+                <!-- Offer Letter Card 1 -->
+                <div class="flex-shrink-0 w-80 rounded-xl shadow-lg bg-white card-hover overflow-hidden">
+                    <img class="h-60 w-full object-cover" src="https://placehold.co/800x600/b794f4/ffffff?text=Offer+Letter+1" alt="Offer Letter">
+                    <div class="p-4 text-center">
+                        <p class="font-semibold text-gray-900">Software Engineer Offer</p>
+                        <p class="text-sm text-gray-500">From a major tech company</p>
+                    </div>
+                </div>
+
+                <!-- Offer Letter Card 2 -->
+                <div class="flex-shrink-0 w-80 rounded-xl shadow-lg bg-white card-hover overflow-hidden">
+                    <img class="h-60 w-full object-cover" src="https://placehold.co/800x600/667eea/ffffff?text=Offer+Letter+2" alt="Offer Letter">
+                    <div class="p-4 text-center">
+                        <p class="font-semibold text-gray-900">Lead Java Developer Offer</p>
+                        <p class="text-sm text-gray-500">From a leading fintech company</p>
+                    </div>
+                </div>
+
+                <!-- Offer Letter Card 3 -->
+                <div class="flex-shrink-0 w-80 rounded-xl shadow-lg bg-white card-hover overflow-hidden">
+                    <img class="h-60 w-full object-cover" src="https://placehold.co/800x600/764ba2/ffffff?text=Offer+Letter+3" alt="Offer Letter">
+                    <div class="p-4 text-center">
+                        <p class="font-semibold text-gray-900">Principal Engineer Offer</p>
+                        <p class="text-sm text-gray-500">From a startup in Silicon Valley</p>
+                    </div>
+                </div>
+                
+                <!-- Offer Letter Card 4 -->
+                <div class="flex-shrink-0 w-80 rounded-xl shadow-lg bg-white card-hover overflow-hidden">
+                    <img class="h-60 w-full object-cover" src="https://placehold.co/800x600/e53e3e/ffffff?text=Offer+Letter+4" alt="Offer Letter">
+                    <div class="p-4 text-center">
+                        <p class="font-semibold text-gray-900">Data Analyst Offer</p>
+                        <p class="text-sm text-gray-500">From a mid-size consultancy</p>
+                    </div>
+                </div>
+                
+                <!-- Offer Letter Card 5 -->
+                <div class="flex-shrink-0 w-80 rounded-xl shadow-lg bg-white card-hover overflow-hidden">
+                    <img class="h-60 w-full object-cover" src="https://placehold.co/800x600/48bb78/ffffff?text=Offer+Letter+5" alt="Offer Letter">
+                    <div class="p-4 text-center">
+                        <p class="font-semibold text-gray-900">Full-Stack Engineer Offer</p>
+                        <p class="text-sm text-gray-500">From an e-commerce giant</p>
+                    </div>
+                </div>
+
+                <!-- Add more offer letter cards here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-2xl">☕</span>
+                        <span class="text-xl font-bold">JavaPrep</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        The ultimate platform for Java interview preparation and coding practice.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📧</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">💼</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Platform</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Question Bank</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Coding Challenges</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mock Interviews</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Progress Tracking</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Study Guides</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 JavaPrep. All rights reserved. Made with ❤️ for Java developers.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

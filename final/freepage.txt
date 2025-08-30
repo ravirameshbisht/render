@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaPrep - Free Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                Start Your Java Prep <span class="text-yellow-300">for Free</span>
+            </h1>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                No credit card required. Gain instant access to our core features and kickstart your interview preparation today.
+            </p>
+            <a href="#signup" class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+                Claim Your Free Access Now
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    What You Get with Free Access
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A powerful set of tools to get you started on your path to success.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover">
+                    <div class="text-4xl feature-icon mb-4 text-blue-600">📚</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Core Question Bank</h3>
+                    <p class="text-gray-600">Access to a curated selection of essential Java interview questions to build your foundation.</p>
+                </div>
+
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover">
+                    <div class="text-4xl feature-icon mb-4 text-green-600">💻</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Introductory Challenges</h3>
+                    <p class="text-gray-600">Practice your coding skills with a few fundamental challenges and our online IDE.</p>
+                </div>
+
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover">
+                    <div class="text-4xl feature-icon mb-4 text-purple-600">📈</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Basic Progress Tracking</h3>
+                    <p class="text-gray-600">Monitor your learning journey and track your completed questions and challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 gradient-bg text-white text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Ready to Unlock Your Full Potential?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Upgrade to our Pro plan to get unlimited access, detailed analytics, and advanced features to guarantee your success.
+            </p>
+            <a href="pricing.html" class="bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-colors">
+                View All Plans
+            </a>
+        </div>
+    </section>
+    
+    <section id="signup" class="py-20 bg-gray-50">
+        <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl p-8 shadow-lg text-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Create Your Free Account</h3>
+                <p class="text-gray-600 mb-6">Join thousands of developers and start your journey today. It's fast and easy!</p>
+                
+                <form class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="Full Name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <input type="password" placeholder="Password" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <button type="submit" class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                        Sign Up for Free
+                    </button>
+                </form>
+                
+                <p class="text-sm text-gray-500 mt-6">
+                    By signing up, you agree to our <a href="#" class="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-2xl">☕</span>
+                        <span class="text-xl font-bold">JavaPrep</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        The ultimate platform for Java interview preparation and coding practice.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📧</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">💼</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Platform</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Question Bank</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Coding Challenges</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mock Interviews</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Progress Tracking</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Study Guides</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 JavaPrep. All rights reserved. Made with ❤️ for Java developers.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

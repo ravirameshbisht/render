@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Coding Challenge Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .code-block {
+            background: #1a1a1a;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+        }
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .option-btn:disabled {
+            opacity: 0.8;
+            cursor: not-allowed !important;
+        }
+        .correct {
+            background: linear-gradient(135deg, #10b981, #059669) !important;
+            color: white !important;
+        }
+        .incorrect {
+            background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+            color: white !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen gradient-bg">
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <div class="flex items-center justify-center mb-4">
+                <div class="text-6xl mr-4">☕</div>
+                <h1 class="text-5xl font-bold text-white drop-shadow-lg">Java Coding Challenge Game</h1>
+            </div>
+            <p class="text-xl text-white/90">Test your Java knowledge and level up your coding skills!</p>
+        </div>
+
+        <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 mb-8 card-shadow">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white" id="score">0</div>
+                    <div class="text-white/80 font-medium">Score</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white" id="streak">0</div>
+                    <div class="text-white/80 font-medium">Streak</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-white" id="completed">0</div>
+                    <div class="text-white/80 font-medium">Completed</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button onclick="setDifficulty('beginner')" class="difficulty-btn bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                🟢 Beginner
+            </button>
+            <button onclick="setDifficulty('intermediate')" class="difficulty-btn bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                🟡 Intermediate
+            </button>
+            <button onclick="setDifficulty('advanced')" class="difficulty-btn bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                🔴 Advanced
+            </button>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 card-shadow">
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800" id="questionTitle">Loading...</h2>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold" id="questionCounter">
+                            Question 0 of 0
+                        </div>
+                        <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-lg">
+                            <div class="text-sm font-bold" id="scoreDisplay">0/0</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-medium text-gray-600">Progress</span>
+                        <span class="text-sm font-medium text-gray-600" id="progressPercent">0%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-500 ease-out" id="progressBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-600 text-lg" id="questionDescription"></p>
+            </div>
+
+            <div class="code-block p-6 mb-6" id="codeSnippet">
+                <pre class="text-green-400 text-sm"><code>// Loading code snippet...</code></pre>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" id="optionsContainer">
+            </div>
+
+            <div class="flex justify-center gap-3">
+                <button onclick="submitAnswer()" id="submitBtn" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    Submit Answer
+                </button>
+                <button onclick="nextQuestion()" id="nextBtn" class="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 transform hover:scale-105 shadow-lg hidden">
+                    Next Question →
+                </button>
+            </div>
+
+            <div id="resultMessage" class="mt-6 text-center hidden">
+                <div class="p-4 rounded-xl font-semibold text-lg"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="resultsModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full card-shadow transform scale-95 transition-all duration-300">
+            <div class="text-center">
+                <div class="text-6xl mb-4" id="resultsEmoji">🎉</div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-2" id="resultsTitle">Quiz Complete!</h2>
+                <p class="text-gray-600 mb-6" id="resultsSubtitle">Great job completing all questions!</p>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 mb-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600" id="finalScore">0</div>
+                            <div class="text-sm text-gray-600">Final Score</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-green-600" id="correctAnswers">0</div>
+                            <div class="text-sm text-gray-600">Correct</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-purple-600" id="maxStreak">0</div>
+                            <div class="text-sm text-gray-600">Best Streak</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-orange-600" id="accuracy">0%</div>
+                            <div class="text-sm text-gray-600">Accuracy</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex gap-3">
+                    <button onclick="restartQuiz()" class="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                        Try Again
+                    </button>
+                    <button onclick="closeResults()" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Game state variables, organized together for clarity.
+        let currentQuestionIndex = 0;
+        let selectedOptionIndex = -1;
+        let score = 0;
+        let currentStreak = 0;
+        let completedQuestions = 0;
+        let currentDifficulty = 'beginner';
+        let isAnswerSubmitted = false;
+        let correctAnswersCount = 0;
+        let maxStreak = 0;
+        let questionsData; // This will hold the data from the JSON file
+
+        // Element references, grouped for easier access.
+        const elements = {
+            score: document.getElementById('score'),
+            streak: document.getElementById('streak'),
+            completed: document.getElementById('completed'),
+            questionTitle: document.getElementById('questionTitle'),
+            questionDescription: document.getElementById('questionDescription'),
+            questionCounter: document.getElementById('questionCounter'),
+            progressBar: document.getElementById('progressBar'),
+            progressPercent: document.getElementById('progressPercent'),
+            scoreDisplay: document.getElementById('scoreDisplay'),
+            codeSnippet: document.getElementById('codeSnippet'),
+            optionsContainer: document.getElementById('optionsContainer'),
+            submitBtn: document.getElementById('submitBtn'),
+            nextBtn: document.getElementById('nextBtn'),
+            resultMessage: document.getElementById('resultMessage'),
+            resultsModal: document.getElementById('resultsModal'),
+            finalScore: document.getElementById('finalScore'),
+            correctAnswers: document.getElementById('correctAnswers'),
+            maxStreak: document.getElementById('maxStreak'),
+            accuracy: document.getElementById('accuracy')
+        };
+        
+        /**
+         * Fetches quiz data from a JSON file to prevent caching.
+         */
+        async function loadQuizData() {
+            try {
+                // Use a timestamp to bust the browser cache.
+                const cacheBuster = `?v=${new Date().getTime()}`;
+                const url = `https://raw.githubusercontent.com/ravirameshbisht/render/refs/heads/main/file.json${cacheBuster}`;
+                
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                questionsData = await response.json();
+                initializeGame();
+            } catch (error) {
+                console.error('Could not load quiz data:', error);
+                elements.questionTitle.textContent = "Error Loading Questions";
+                elements.questionDescription.textContent = "Please check the console for details and ensure the JSON file is correct.";
+            }
+        }
+        
+        /**
+         * Initializes the game state after data has been loaded.
+         */
+        function initializeGame() {
+            setDifficulty('beginner');
+            // Add a ring to the default difficulty button on load.
+            document.querySelector('.difficulty-btn').classList.add('ring-4', 'ring-white');
+            updateScoreboard();
+        }
+
+        /**
+         * Sets the current difficulty and resets the game state.
+         * @param {string} difficulty - 'beginner', 'intermediate', or 'advanced'.
+         * @param {Event} event - The click event object.
+         */
+        function setDifficulty(difficulty, event) {
+            currentDifficulty = difficulty;
+            currentQuestionIndex = 0;
+            
+            // Reset all game stats.
+            score = 0;
+            currentStreak = 0;
+            completedQuestions = 0;
+            correctAnswersCount = 0;
+            maxStreak = 0;
+            updateScoreboard();
+
+            // Update button styles to highlight the active difficulty.
+            document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                btn.classList.remove('ring-4', 'ring-white');
+            });
+            const selectedBtn = event ? event.target : document.querySelector(`.difficulty-btn[onclick*="${difficulty}"]`);
+            if (selectedBtn) {
+                selectedBtn.classList.add('ring-4', 'ring-white');
+            }
+            
+            loadQuestion();
+        }
+
+        /**
+         * Loads and displays the current question.
+         */
+        function loadQuestion() {
+            if (!questionsData) return; // Wait for data to be loaded.
+            
+            const question = questionsData[currentDifficulty][currentQuestionIndex];
+            const totalQuestions = questionsData[currentDifficulty].length;
+            
+            // Update quiz card content.
+            elements.questionTitle.textContent = question.title;
+            elements.questionDescription.textContent = question.description;
+            elements.questionCounter.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
+            
+            // Update progress bar.
+            const progress = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+            elements.progressBar.style.width = `${progress}%`;
+            elements.progressPercent.textContent = `${Math.round(progress)}%`;
+            
+            updateScoreboard();
+            
+            // Display code snippet with proper line breaks.
+            elements.codeSnippet.innerHTML = `<pre class="text-green-400 text-sm"><code>${question.code.replace(/\\n/g, '\n')}</code></pre>`;
+            
+            // Generate option buttons dynamically.
+            elements.optionsContainer.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.onclick = () => selectOption(index);
+                button.className = 'option-btn bg-white hover:bg-blue-50 text-gray-800 p-3 rounded-xl text-left text-sm font-medium border border-gray-200 hover:border-blue-300 shadow-sm';
+                button.innerHTML = `<span class="font-bold text-blue-600">${String.fromCharCode(65 + index)})</span> ${option}`;
+                elements.optionsContainer.appendChild(button);
+            });
+            
+            // Reset state for a new question.
+            selectedOptionIndex = -1;
+            isAnswerSubmitted = false;
+            elements.submitBtn.disabled = true;
+            elements.resultMessage.classList.add('hidden');
+            elements.nextBtn.classList.add('hidden');
+        }
+
+        /**
+         * Highlights the selected option.
+         * @param {number} index - The index of the selected option.
+         */
+        function selectOption(index) {
+            if (isAnswerSubmitted) return;
+            selectedOptionIndex = index;
+            
+            // Reset all option button styles.
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('ring-4', 'ring-blue-400', 'bg-blue-100');
+                btn.classList.add('bg-gray-100');
+            });
+            
+            // Highlight the newly selected button.
+            const selectedBtn = document.querySelectorAll('.option-btn')[index];
+            selectedBtn.classList.remove('bg-gray-100');
+            selectedBtn.classList.add('bg-blue-100', 'ring-4', 'ring-blue-400');
+            
+            elements.submitBtn.disabled = false;
+        }
+
+        /**
+         * Submits the user's answer and provides feedback.
+         */
+        function submitAnswer() {
+            if (isAnswerSubmitted) return;
+            isAnswerSubmitted = true;
+            
+            const question = questionsData[currentDifficulty][currentQuestionIndex];
+            const isCorrect = selectedOptionIndex === question.correct;
+            
+            // Disable all options and show correct/incorrect styles.
+            document.querySelectorAll('.option-btn').forEach((btn, index) => {
+                btn.disabled = true;
+                btn.classList.remove('hover:bg-gray-200', 'hover:border-blue-300');
+                btn.style.cursor = 'not-allowed';
+                btn.onclick = null;
+                if (index === question.correct) {
+                    btn.classList.add('correct');
+                } else if (index === selectedOptionIndex && !isCorrect) {
+                    btn.classList.add('incorrect');
+                }
+            });
+            
+            // Update scores and streaks.
+            if (isCorrect) {
+                score += 2;
+                currentStreak++;
+                correctAnswersCount++;
+                maxStreak = Math.max(maxStreak, currentStreak);
+            } else {
+                currentStreak = 0;
+            }
+            completedQuestions++;
+            
+            updateScoreboard();
+            
+            // Display result message.
+            const messageDiv = elements.resultMessage.querySelector('div');
+            if (isCorrect) {
+                messageDiv.innerHTML = `🎉 Correct! Well done!<br><small class="text-sm opacity-80">${question.explanation}</small>`;
+                messageDiv.className = 'p-4 rounded-xl font-semibold text-lg bg-green-100 text-green-800';
+            } else {
+                messageDiv.innerHTML = `❌ Incorrect. The correct answer is ${String.fromCharCode(65 + question.correct)}.<br><small class="text-sm opacity-80">${question.explanation}</small>`;
+                messageDiv.className = 'p-4 rounded-xl font-semibold text-lg bg-red-100 text-red-800';
+            }
+			
+			 // Check if it's the last question to change the next button's behavior
+			const totalQuestions = questionsData[currentDifficulty].length;
+			if (currentQuestionIndex === totalQuestions - 1) {
+				elements.nextBtn.textContent = 'View Results';
+			} else {
+				elements.nextBtn.textContent = 'Next Question →';
+			}
+	
+            elements.resultMessage.classList.remove('hidden');
+            elements.submitBtn.disabled = true;
+            elements.nextBtn.classList.remove('hidden');
+        }
+
+		/**
+		 * Advances to the next question or shows results if the quiz is complete.
+		 */
+		function nextQuestion() {
+			const totalQuestions = questionsData[currentDifficulty].length;
+			// Check if the user has answered the last question
+			if (currentQuestionIndex >= totalQuestions - 1) {
+				// If it's the last question, show the results
+				showResults();
+			} else {
+				// Otherwise, move to the next question
+				currentQuestionIndex++;
+				loadQuestion();
+			}
+		}
+
+        /**
+         * Updates all the scoreboard metrics on the UI.
+         */
+        function updateScoreboard() {
+            elements.score.textContent = score;
+            elements.streak.textContent = currentStreak;
+            elements.completed.textContent = completedQuestions;
+            
+            const totalQuestions = questionsData && questionsData[currentDifficulty] ? questionsData[currentDifficulty].length : 0;
+            const totalPossibleScore = totalQuestions * 2;
+            elements.scoreDisplay.textContent = `${score}/${totalPossibleScore}`;
+        }
+
+        /**
+         * Displays the final results modal.
+         */
+        function showResults() {
+            const totalQuestions = questionsData[currentDifficulty].length;
+            const accuracy = totalQuestions > 0 ? Math.round((correctAnswersCount / totalQuestions) * 100) : 0;
+            
+            elements.finalScore.textContent = score;
+            elements.correctAnswers.textContent = `${correctAnswersCount}/${totalQuestions}`;
+            elements.maxStreak.textContent = maxStreak;
+            elements.accuracy.textContent = `${accuracy}%`;
+            
+            // Set emoji and message based on performance.
+            if (accuracy >= 90) {
+                elements.resultsEmoji.textContent = '🏆';
+                elements.resultsTitle.textContent = 'Outstanding!';
+                elements.resultsSubtitle.textContent = 'You\'re a Java master!';
+            } else if (accuracy >= 70) {
+                elements.resultsEmoji.textContent = '🎉';
+                elements.resultsTitle.textContent = 'Great Job!';
+                elements.resultsSubtitle.textContent = 'You\'re doing really well!';
+            } else if (accuracy >= 50) {
+                elements.resultsEmoji.textContent = '👍';
+                elements.resultsTitle.textContent = 'Good Effort!';
+                elements.resultsSubtitle.textContent = 'Keep practicing to improve!';
+            } else {
+                elements.resultsEmoji.textContent = '📚';
+                elements.resultsTitle.textContent = 'Keep Learning!';
+                elements.resultsSubtitle.textContent = 'Practice makes perfect!';
+            }
+            
+            elements.resultsModal.classList.remove('hidden');
+            setTimeout(() => {
+                elements.resultsModal.querySelector('.bg-white').classList.remove('scale-95');
+                elements.resultsModal.querySelector('.bg-white').classList.add('scale-100');
+            }, 10);
+        }
+
+        /**
+         * Hides the results modal.
+         */
+        function closeResults() {
+            const modalInner = elements.resultsModal.querySelector('.bg-white');
+            modalInner.classList.remove('scale-100');
+            modalInner.classList.add('scale-95');
+            setTimeout(() => {
+                elements.resultsModal.classList.add('hidden');
+            }, 300);
+        }
+
+        /**
+         * Resets the game to its initial state.
+         */
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            selectedOptionIndex = -1;
+            score = 0;
+            currentStreak = 0;
+            completedQuestions = 0;
+            correctAnswersCount = 0;
+            maxStreak = 0;
+            isAnswerSubmitted = false;
+            updateScoreboard();
+            closeResults();
+            setTimeout(() => {
+                loadQuestion();
+            }, 300);
+        }
+
+        // Start the game by loading the data from the JSON file.
+        loadQuizData();
+    </script>
+</body>
+</html>
