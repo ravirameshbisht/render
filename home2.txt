@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaPrep - Master Java Interviews & Coding Challenges</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        .glow-effect {
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-modern {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+        }
+        .section-modern {
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-6">
+                        <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                            Master Java Interviews with 
+                            <span class="text-gradient bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Confidence</span>
+                        </h1>
+                        <p class="text-xl text-blue-100 leading-relaxed max-w-lg">
+                            Comprehensive Java interview preparation platform with 1000+ questions, 
+                            coding challenges, and expert-curated content to land your dream job.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="btn-modern text-white px-10 py-4 rounded-xl font-semibold text-lg">
+                            Java Backend
+                        </button>
+                        <button class="border-2 border-white/30 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:bg-white/10 transition-all backdrop-blur-sm">
+                            Watch Demo
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-6 pt-8">
+                        <div class="text-center">
+                            <div class="text-3xl mb-2">⭐</div>
+                            <div class="text-2xl font-bold text-yellow-400">4.9</div>
+                            <div class="text-blue-200 text-sm">Rating</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl mb-2">👥</div>
+                            <div class="text-2xl font-bold text-yellow-400">1000+</div>
+                            <div class="text-blue-200 text-sm">Students</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl mb-2">🏆</div>
+                            <div class="text-2xl font-bold text-yellow-400">95%</div>
+                            <div class="text-blue-200 text-sm">Success</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative float-animation">
+                    <div class="glass-card rounded-3xl p-8 shadow-2xl glow-effect">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold text-gray-900">Today's Challenge</h3>
+                            <span class="bg-gradient-to-r from-green-400 to-emerald-500 text-white px-4 py-2 rounded-full text-sm font-medium">Easy</span>
+                        </div>
+                        <div class="text-gray-700 mb-8">
+                            <p class="font-semibold mb-4 text-lg">What is the difference between == and .equals() in Java?</p>
+                            <div class="space-y-3">
+                                <label class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="demo" value="0" class="text-indigo-600 w-5 h-5">
+                                    <span class="text-gray-700">They are exactly the same</span>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors bg-indigo-50">
+                                    <input type="radio" name="demo" value="1" class="text-indigo-600 w-5 h-5" checked>
+                                    <span class="text-gray-700">== compares references, .equals() compares values</span>
+                                </label>
+                                <label class="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors">
+                                    <input type="radio" name="demo" value="2" class="text-indigo-600 w-5 h-5">
+                                    <span class="text-gray-700">== compares values, .equals() compares references</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button onclick="checkDemoAnswer()" class="w-full btn-modern text-white py-4 rounded-xl font-semibold text-lg">
+                            Submit Answer
+                        </button>
+                    </div>
+                    <div class="absolute -top-6 -right-6 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-3 rounded-full font-bold pulse-animation shadow-lg">
+                        Try Now! ✨
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 section-modern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center group">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                        <div class="text-4xl font-bold text-gradient mb-3">600+</div>
+                        <div class="text-gray-600 font-medium">Interview Questions</div>
+                        <div class="w-12 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto mt-4 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="text-center group">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                        <div class="text-4xl font-bold text-gradient mb-3">50+</div>
+                        <div class="text-gray-600 font-medium">Coding Challenges</div>
+                        <div class="w-12 h-1 bg-gradient-to-r from-green-500 to-emerald-600 mx-auto mt-4 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="text-center group">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                        <div class="text-4xl font-bold text-gradient mb-3">1000</div>
+                        <div class="text-gray-600 font-medium">Happy Students</div>
+                        <div class="w-12 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto mt-4 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="text-center group">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 card-hover">
+                        <div class="text-4xl font-bold text-gradient mb-3">95%</div>
+                        <div class="text-gray-600 font-medium">Success Rate</div>
+                        <div class="w-12 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto mt-4 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Everything You Need to 
+                    <span class="text-gradient">Ace Java Interviews</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Comprehensive preparation tools designed by industry experts to help you succeed in your Java developer interviews.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card rounded-2xl p-8 shadow-lg card-hover group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-2xl text-white mb-6 group-hover:scale-110 transition-transform">
+                        📚
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Question Bank</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">600+ curated Java interview questions covering Core Java, Collections, Multithreading, Spring Boot, and more.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                            Categorized by topics
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                            Difficulty levels
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                            Detailed explanations
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 shadow-lg card-hover group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center text-2xl text-white mb-6 group-hover:scale-110 transition-transform">
+                        🧠
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Interactive Quizzes</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Timed quizzes with instant feedback, progress tracking, and performance analytics to identify your strengths.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                            Multiple choice questions
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                            Instant feedback
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
+                            Progress tracking
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 shadow-lg card-hover group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center text-2xl text-white mb-6 group-hover:scale-110 transition-transform">
+                        💻
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Coding Challenges</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">50+ hands-on coding problems with online IDE, test cases, and step-by-step solutions.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            Online code editor
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            Test case validation
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            Solution explanations
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 shadow-lg card-hover group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-2xl text-white mb-6 group-hover:scale-110 transition-transform">
+                        🃏
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Smart Flashcards</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Interactive flashcards for quick revision of key Java concepts, design patterns, and best practices.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                            Spaced repetition
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                            Topic-wise cards
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                            Progress tracking
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 shadow-lg card-hover group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-2xl text-white mb-6 group-hover:scale-110 transition-transform">
+                        📊
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Progress Analytics</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Detailed analytics and insights into your learning progress with personalized recommendations.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-pink-500 rounded-full mr-3"></div>
+                            Performance metrics
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-pink-500 rounded-full mr-3"></div>
+                            Weakness identification
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-pink-500 rounded-full mr-3"></div>
+                            Study recommendations
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-8 shadow-lg card-hover group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center text-2xl text-white mb-6 group-hover:scale-110 transition-transform">
+                        🏆
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Gamification</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Earn badges, maintain streaks, and compete with peers to make learning engaging and fun.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                            Achievement badges
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                            Learning streaks
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <div class="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
+                            Leaderboards
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Structured Learning Paths
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Follow our expertly designed courses to master Java step by step
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-8 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">Beginner</span>
+                        <span class="text-2xl">☕</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Core Java Fundamentals</h3>
+                    <p class="text-gray-600 mb-4">Master the basics of Java programming including OOP, data types, control structures, and exception handling.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span>150 Questions</span>
+                        <span>4 Weeks</span>
+                    </div>
+                    <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Start Course
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-8 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">Intermediate</span>
+                        <span class="text-2xl">📦</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Collections & Generics</h3>
+                    <p class="text-gray-600 mb-4">Deep dive into Java Collections Framework, generics, and advanced data structures used in interviews.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span>120 Questions</span>
+                        <span>3 Weeks</span>
+                    </div>
+                    <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors">
+                        Start Course
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-violet-100 rounded-xl p-8 card-hover">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">Advanced</span>
+                        <span class="text-2xl">🌱</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Spring Boot Mastery</h3>
+                    <p class="text-gray-600 mb-4">Complete Spring Boot course covering REST APIs, security, testing, and microservices architecture.</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span>200 Questions</span>
+                        <span>6 Weeks</span>
+                    </div>
+                    <button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                        Start Course
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Section -->
+    <section id="practice" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Practice Makes Perfect
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Sharpen your skills with our comprehensive practice platform
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 p-3 rounded-lg">
+                                <span class="text-blue-600 text-xl">🎯</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Daily Challenges</h3>
+                                <p class="text-gray-600">Get a new Java question every day to maintain your learning momentum and build consistency.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-100 p-3 rounded-lg">
+                                <span class="text-green-600 text-xl">⚡</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Speed Rounds</h3>
+                                <p class="text-gray-600">Quick-fire questions to test your knowledge under time pressure, simulating real interview conditions.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-purple-100 p-3 rounded-lg">
+                                <span class="text-purple-600 text-xl">🔄</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Adaptive Learning</h3>
+                                <p class="text-gray-600">AI-powered system that adapts to your learning pace and focuses on your weak areas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Ready to Practice?</h3>
+                        <p class="text-gray-600">Join thousands of developers preparing for their dream jobs</p>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">Questions Solved Today</span>
+                            <span class="font-semibold text-blue-600">12/15</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">Current Streak</span>
+                            <span class="font-semibold text-orange-600">7 days 🔥</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">Overall Progress</span>
+                            <span class="font-semibold text-green-600">87%</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all">
+                        Start Practicing Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 gradient-bg text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">
+                Ready to Land Your 
+                <span class="text-gradient bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Dream Java Job?</span>
+            </h2>
+            <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Join over 1000 developers who have successfully prepared for their Java interviews with JavaPrep. Start your journey today!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+                <button class="btn-modern text-white px-12 py-5 rounded-xl font-bold text-lg">
+                    Get Started Free ✨
+                </button>
+                <button class="border-2 border-white/30 text-white px-12 py-5 rounded-xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-sm">
+                    View Pricing
+                </button>
+            </div>
+            <div class="flex items-center justify-center space-x-8 text-blue-200 text-sm">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span>No credit card required</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span>7-day free trial</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span>Cancel anytime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-2xl">☕</span>
+                        <span class="text-xl font-bold">JavaPrep</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        The ultimate platform for Java interview preparation and coding practice.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📧</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">💼</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Platform</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Question Bank</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Coding Challenges</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mock Interviews</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Progress Tracking</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Study Guides</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 JavaPrep. All rights reserved. Made with ❤️ for Java developers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.md\\:hidden button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                // Mobile menu functionality would go here
+                console.log('Mobile menu clicked');
+            });
+        }
+
+        // Demo quiz function
+        function checkDemoAnswer() {
+            const selectedAnswer = document.querySelector('input[name="demo"]:checked');
+            if (selectedAnswer) {
+                const selectedValue = selectedAnswer.value;
+                
+                if (selectedValue === "1") {
+                    alert('🎉 Correct! == compares references while .equals() compares values. Great job!');
+                } else {
+                    alert('❌ Not quite right. The correct answer is: == compares references, .equals() compares values. Keep practicing!');
+                }
+                
+                // Redirect to coding challenges page after showing feedback
+                setTimeout(() => {
+                    window.location.href = '/codingchallenges';
+                }, 2000);
+            } else {
+                alert('Please select an answer first!');
+            }
+        }
+
+        // Add some interactive animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards for animation
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97724192f684c1a6',t:'MTc1NjUzNTYwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

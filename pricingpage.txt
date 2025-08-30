@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaPrep - Pricing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Simple, Transparent Pricing
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Choose the plan that's right for you. Get access to thousands of questions and challenges to ace your interview.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Free</h3>
+                    <p class="text-sm text-gray-500 mb-6">Start your journey</p>
+                    <div class="mb-8">
+                        <span class="text-5xl font-extrabold text-gray-900">Rs 0</span>
+                        <span class="text-xl text-gray-500"></span>
+                    </div>
+                    <ul class="text-left text-gray-600 space-y-3 mb-8">
+                        <li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>Access to Java, SpringBoot and Microservices Roadmap</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>Resume templates</span>
+                        </li>
+						<li class="flex items-center space-x-2 text-gray-400">
+                            <span class="text-red-500">✖</span>
+                            <span>All Scenario based Answers</span>
+                        </li>
+                        <li class="flex items-center space-x-2 text-gray-400">
+                            <span class="text-red-500">✖</span>
+                            <span>All Frequently asked Answers</span>
+                        </li>
+                        <li class="flex items-center space-x-2 text-gray-400">
+                            <span class="text-red-500">✖</span>
+                            <span>All Coding based Answers</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-white border border-gray-300 text-gray-900 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                        Get Started
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover text-center border-4 border-yellow-400 relative">
+                    <div class="absolute top-0 right-0 -mt-3 -mr-3 bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-1 rounded-full rotate-12">
+                        Most Popular
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Pro</h3>
+                    <p class="text-sm text-gray-500 mb-6">For serious job seekers</p>
+                    <div class="mb-8">
+                        <span class="text-5xl font-extrabold text-gray-900">Rs135</span>
+                        <span class="text-xl text-gray-500">For 3 months</span>
+                    </div>
+                    <ul class="text-left text-gray-600 space-y-3 mb-8">
+						<li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>Access for 3 Months</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>All Frequently asked Answers</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>All Scenario based Answers</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>All Coding based Answers</span>
+                        </li>
+						<li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>Access to Coding challenges</span>
+                        </li>
+                    </ul>
+                    <button class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                        Click to Get Access now !
+                    </button>
+                </div>
+
+                <div class="bg-gray-100 rounded-xl p-8 shadow-sm card-hover text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Pro Plus</h3>
+                    <p class="text-sm text-gray-500 mb-6">For complete interview readiness</p>
+                    <div class="mb-8">
+                        <span class="text-5xl font-extrabold text-gray-900">Rs 399</span>
+                        <span class="text-xl text-gray-500">For 1 year</span>
+                    </div>
+                    <ul class="text-left text-gray-600 space-y-3 mb-8">
+						<li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>Access for 12 Months</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>All Frequently asked Answers</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>All Scenario based Answers</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>All Coding based Answers</span>
+                        </li>
+						<li class="flex items-center space-x-2">
+                            <span class="text-green-500">✔</span>
+                            <span>Access to Coding challenges</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                        Go Pro Plus
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Find answers to the most common questions about our platform and plans.
+                </p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        What is included in the free trial?
+                    </h3>
+                    <p class="text-gray-600">
+                        The 7-day free trial gives you full access to all features of the Pro plan, including unlimited questions and coding challenges. You can cancel at any time.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        Can I switch my plan later?
+                    </h3>
+                    <p class="text-gray-600">
+                        Yes, you can upgrade or downgrade your plan at any time from your account settings. Your new plan will be activated immediately, and you'll be charged a prorated amount.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        Do you offer a student discount?
+                    </h3>
+                    <p class="text-gray-600">
+                        We don't have a formal student discount program yet, but we're working on it! Follow our social media channels for updates.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                        What payment methods do you accept?
+                    </h3>
+                    <p class="text-gray-600">
+                        We accept all major credit cards, including Visa, Mastercard, American Express, and Discover. We also support PayPal for your convenience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="text-2xl">☕</span>
+                        <span class="text-xl font-bold">JavaPrep</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        The ultimate platform for Java interview preparation and coding practice.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📧</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">🐦</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">💼</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">📘</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Platform</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Question Bank</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Coding Challenges</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mock Interviews</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Progress Tracking</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Study Guides</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 JavaPrep. All rights reserved. Made with ❤️ for Java developers.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
